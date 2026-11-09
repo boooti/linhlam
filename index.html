@@ -167,7 +167,7 @@
     }
   </style>
 </head>
-<body class="relative min-h-screen selection:bg-red-800 selection:text-amber-100">
+<body class="relative min-h-screen selection:bg-red-800 selection:text-amber-100 overflow-hidden" id="body-root">
 
   <!-- Fixed Container for Gentle Falling Flower Petals Across Screen -->
   <div id="petal-container" class="fixed inset-0 pointer-events-none z-30 overflow-hidden" aria-hidden="true"></div>
@@ -201,16 +201,13 @@
   <!-- ========================================== -->
   <!-- 1. ENVELOPE LANDING SCREEN (ĐỎ TƯƠI SÁNG)  -->
   <!-- ========================================== -->
-  <div id="envelope-screen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-opacity duration-1000" style="background: radial-gradient(ellipse at 50% 35%, #a31c1c 0%, #8f1616 45%, #7a1010 80%, #5e0b0b 100%);">
+  <div id="envelope-screen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-opacity duration-700 bg-[#7a1010]" style="min-height: 100vh; min-height: 100dvh; background: radial-gradient(ellipse at 50% 35%, #941717 0%, #801212 45%, #6b0d0d 80%, #4f0808 100%);">
     
-    <!-- Ambient Floating Romantic Flower Petals (Cánh hoa bay lãng mạn) -->
+    <!-- Ambient Floating Romantic Flower Petals (Cánh hoa nhẹ nhàng) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-[1]">
-      <div class="absolute text-xl select-none opacity-85" style="left: 10%; bottom: -40px; --sway: 20px; animation: ambient-rise 16s ease-in-out infinite;">🌸</div>
-      <div class="absolute text-2xl select-none opacity-85" style="left: 24%; bottom: -40px; --sway: -18px; animation: ambient-rise 20s ease-in-out 2s infinite;">🌺</div>
-      <div class="absolute text-xl select-none opacity-85" style="left: 42%; bottom: -40px; --sway: 25px; animation: ambient-rise 18s ease-in-out 1s infinite;">🌸</div>
-      <div class="absolute text-2xl select-none opacity-85" style="left: 60%; bottom: -40px; --sway: -22px; animation: ambient-rise 22s ease-in-out 3s infinite;">🌸</div>
-      <div class="absolute text-xl select-none opacity-85" style="left: 76%; bottom: -40px; --sway: 16px; animation: ambient-rise 17s ease-in-out 1.5s infinite;">🌺</div>
-      <div class="absolute text-2xl select-none opacity-85" style="left: 90%; bottom: -40px; --sway: -28px; animation: ambient-rise 23s ease-in-out 4s infinite;">🌸</div>
+      <div class="absolute text-base select-none opacity-50" style="left: 15%; bottom: -30px; --sway: 15px; animation: ambient-rise 18s ease-in-out infinite;">🌸</div>
+      <div class="absolute text-lg select-none opacity-50" style="left: 50%; bottom: -30px; --sway: -18px; animation: ambient-rise 22s ease-in-out 2s infinite;">🌸</div>
+      <div class="absolute text-base select-none opacity-50" style="left: 82%; bottom: -30px; --sway: 12px; animation: ambient-rise 19s ease-in-out 4s infinite;">🌸</div>
     </div>
 
     <!-- The Envelope Container -->
@@ -278,7 +275,7 @@
   <!-- ========================================== -->
   <!-- 2. MAIN WEDDING INVITATION WEBSITE         -->
   <!-- ========================================== -->
-  <main id="main-invitation" class="relative max-w-xl mx-auto min-h-screen bg-gradient-to-b from-[#a31c1c] via-[#8f1616] to-[#7a1010] text-[#fff8ea] shadow-2xl border-x border-[#fef08a]/30 overflow-hidden pb-16">
+  <main id="main-invitation" class="hidden opacity-0 relative max-w-xl mx-auto min-h-screen bg-gradient-to-b from-[#941717] via-[#801212] to-[#6d0d0d] text-[#fff8ea] shadow-2xl border-x border-[#fef08a]/25 overflow-hidden pb-16 transition-opacity duration-700">
 
     <!-- Soft Ambient Luminous Layers ("Màu nhẹ nhàng cho trang chính") -->
     <div class="absolute inset-0 pointer-events-none opacity-30 z-0 bg-[radial-gradient(circle_at_50%_15%,rgba(254,240,138,0.22),transparent_55%),radial-gradient(circle_at_50%_50%,rgba(254,215,170,0.18),transparent_55%),radial-gradient(circle_at_50%_85%,rgba(254,240,138,0.18),transparent_55%)]"></div>
@@ -1021,19 +1018,30 @@
     const envelopeBox = document.getElementById('envelope-box');
 
     openEnvelopeBtn.addEventListener('click', () => {
-      envelopeBox.style.transform = 'scale(0.85) rotateX(15deg)';
-      envelopeBox.style.opacity = '0.4';
-      envelopeScreen.style.opacity = '0';
-      envelopeScreen.style.pointerEvents = 'none';
+      // 1. Reveal main invitation smoothly
+      const mainInvitation = document.getElementById('main-invitation');
+      mainInvitation.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        mainInvitation.classList.remove('opacity-0');
+      });
 
-      // Start music
+      // 2. Unlock body scrolling
+      document.body.classList.remove('overflow-hidden');
+
+      // 3. Start music & show controls
       playMusic();
       musicControl.classList.remove('hidden');
+
+      // 4. Smooth envelope fade
+      envelopeBox.style.transform = 'scale(0.85) rotateX(15deg)';
+      envelopeBox.style.opacity = '0.2';
+      envelopeScreen.style.opacity = '0';
+      envelopeScreen.style.pointerEvents = 'none';
 
       setTimeout(() => {
         envelopeScreen.style.display = 'none';
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 800);
+      }, 700);
     });
 
     // 3. Live Countdown Timer to Nov 18, 2026, 10:30:00 (GMT+7)
@@ -1293,33 +1301,34 @@
       }, 2500);
     }
 
-    // 8. Gentle Falling Romantic Flower Petals Effect (Cánh hoa rơi nhẹ nhàng)
+    // 8. Gentle Falling Romantic Flower Petals Effect (Cánh hoa rơi nhẹ nhàng, số lượng tinh tế)
     function createPetalShower() {
       const container = document.getElementById('petal-container');
       if (!container) return;
+      container.innerHTML = '';
 
       const petalGradients = [
-        'linear-gradient(135deg, #ffd1dc 0%, #ff85a2 55%, #e63946 100%)',
-        'linear-gradient(135deg, #ffe5ec 0%, #ffb3c6 60%, #ff758f 100%)',
-        'linear-gradient(135deg, #ffccd5 0%, #ff4d6d 50%, #c9184a 100%)',
-        'linear-gradient(135deg, #fff0f3 0%, #ffb3c1 50%, #d90429 100%)',
-        'linear-gradient(135deg, #fce7f3 0%, #f472b6 55%, #db2777 100%)'
+        'linear-gradient(135deg, rgba(255, 209, 220, 0.85) 0%, rgba(255, 133, 162, 0.75) 55%, rgba(230, 57, 70, 0.7) 100%)',
+        'linear-gradient(135deg, rgba(255, 229, 236, 0.85) 0%, rgba(255, 179, 198, 0.75) 60%, rgba(255, 117, 143, 0.7) 100%)',
+        'linear-gradient(135deg, rgba(255, 240, 243, 0.85) 0%, rgba(255, 179, 193, 0.75) 50%, rgba(217, 4, 41, 0.65) 100%)'
       ];
 
-      for (let i = 0; i < 22; i++) {
+      // Tinh chỉnh chỉ giữ 8 cánh hoa thanh lịch, rơi chậm rãi, nhẹ nhàng và không che khuất chữ
+      const petalCount = 8;
+      for (let i = 0; i < petalCount; i++) {
         const petal = document.createElement('div');
-        const width = Math.random() * 7 + 12; // 12px to 19px
-        const height = width * 1.35; // natural elongated petal shape
+        const width = Math.random() * 5 + 10; // 10px đến 15px (nhỏ gọn, thanh mảnh)
+        const height = width * 1.35;
         petal.className = 'falling-petal';
         petal.style.width = width + 'px';
         petal.style.height = height + 'px';
-        petal.style.left = (Math.random() * 96) + '%';
+        petal.style.left = (Math.random() * 90 + 5) + '%';
         petal.style.top = '-35px';
-        petal.style.background = petalGradients[Math.floor(Math.random() * petalGradients.length)];
-        petal.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
+        petal.style.background = petalGradients[i % petalGradients.length];
+        petal.style.setProperty('--drift', (Math.random() * 50 - 25) + 'px');
         
-        const duration = Math.random() * 6 + 9; // 9s to 15s gentle slow fall
-        const delay = Math.random() * 10; // staggered delay
+        const duration = Math.random() * 6 + 13; // 13s đến 19s (rơi rất chậm và êm đềm)
+        const delay = Math.random() * 12; // trải đều thời gian bắt đầu
         petal.style.animation = `petal-fall ${duration}s ease-in-out infinite`;
         petal.style.animationDelay = delay + 's';
         
