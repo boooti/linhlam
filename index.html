@@ -11,7 +11,7 @@
   <!-- Google Fonts: Pinyon Script, Great Vibes, Playfair Display, Cinzel, Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,14 +20,13 @@
       theme: {
         extend: {
           colors: {
-            festiveRed: '#c51d24',
+            festiveRed: '#b91c1c',
             festiveRedBright: '#dc2626',
             festiveRedLight: '#ef4444',
-            festiveRedDark: '#991b1b',
-            themeGold: '#fff2b2',
-            themeGoldSoft: '#ffea88',
-            themeGoldBright: '#ffd700',
-            themeGoldLight: '#fff9e6'
+            festiveRedDark: '#881313',
+            themeGold: '#fef08a',
+            themeCream: '#fff8ea',
+            themeIvory: '#fffdf7'
           },
           fontFamily: {
             pinyon: ['"Pinyon Script"', '"Great Vibes"', 'cursive'],
@@ -43,12 +42,12 @@
 
   <style>
     :root {
-      --color-gold: #fff2b2;
-      --color-gold-bright: #ffd700;
-      --color-gold-soft: #ffea88;
+      --color-gold-soft: #fef08a;
+      --color-cream: #fff8ea;
+      --color-cream-border: #f3dfbd;
       --color-red-bright: #dc2626;
       --color-red-festive: #b91c1c;
-      --color-red-deep: #7f1d1d;
+      --color-red-deep: #700c0c;
     }
 
     * {
@@ -59,11 +58,12 @@
     }
 
     body {
-      background-color: #2b0606;
-      color: #fff2b2;
+      background-color: #280505;
+      color: #fff8ea;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
       line-height: 1.6;
+      font-size: 15px;
     }
 
     /* Ambient Floating Romantic Elements */
@@ -121,17 +121,17 @@
     /* Seal Glow Pulse */
     @keyframes seal-pulse {
       0%, 100% {
-        box-shadow: 0 0 18px rgba(255, 230, 130, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 16px rgba(254, 240, 138, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.6);
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 0 32px rgba(255, 215, 0, 0.95), inset 0 0 14px rgba(255, 255, 255, 0.9);
-        transform: scale(1.05);
+        box-shadow: 0 0 28px rgba(254, 240, 138, 0.75), inset 0 0 12px rgba(255, 255, 255, 0.8);
+        transform: scale(1.03);
       }
     }
 
     .wax-seal {
-      animation: seal-pulse 2.6s infinite ease-in-out;
+      animation: seal-pulse 2.8s infinite ease-in-out;
     }
 
     /* Disc Spinning Animation */
@@ -145,9 +145,9 @@
       animation: spin 10s linear infinite;
     }
 
-    /* Bright Radiant Gold Text Gradient */
+    /* Elegant Soft Gold Text Gradient (Nhã nhặn, sang trọng) */
     .text-gold-gradient {
-      background: linear-gradient(135deg, #ffffff 0%, #fff6cc 30%, #ffd700 70%, #ffea88 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #fff7d6 45%, #fde68a 85%, #ffffff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -160,7 +160,7 @@
       background: #450a0a;
     }
     ::-webkit-scrollbar-thumb {
-      background: #ffd700;
+      background: #fde68a;
       border-radius: 3px;
     }
   </style>
@@ -178,20 +178,20 @@
   <!-- ========================================== -->
   <!-- FLOATING MUSIC PLAYER BUTTON               -->
   <!-- ========================================== -->
-  <div id="music-control" class="fixed top-5 right-5 z-40 hidden flex items-center gap-2.5">
-    <button id="music-toggle-btn" class="group flex items-center gap-2 bg-[#991b1b]/95 hover:bg-[#b91c1c] border border-[#ffe58f] px-3.5 py-1.5 rounded-full shadow-2xl backdrop-blur-md transition-all duration-300">
-      <div id="music-disc" class="w-7 h-7 rounded-full border border-[#ffd700] flex items-center justify-center animate-spin-slow bg-[#5c0b0b]">
-        <span class="text-xs text-[#ffd700]">♫</span>
+  <div id="music-control" class="fixed top-4 right-4 z-40 hidden flex items-center gap-2">
+    <button id="music-toggle-btn" class="group flex items-center gap-2.5 bg-[#881313]/95 hover:bg-[#991b1b] border border-[#fef08a]/60 px-4 py-2 rounded-full shadow-2xl backdrop-blur-md transition-all duration-300">
+      <div id="music-disc" class="w-7 h-7 rounded-full border border-[#fef08a] flex items-center justify-center animate-spin-slow bg-[#500808]">
+        <span class="text-xs text-[#fef08a]">♫</span>
       </div>
       <div class="flex flex-col text-left">
-        <span class="text-[11px] font-semibold text-[#fff4d2] leading-tight">Một Đời</span>
-        <span class="text-[9px] text-[#ffe58f]/80">14 Casper &amp; Bon</span>
+        <span class="text-xs font-bold text-white leading-tight">Một Đời</span>
+        <span class="text-[10px] text-[#fef08a]/80">14 Casper &amp; Bon</span>
       </div>
       <!-- Equalizer Bars -->
       <div id="equalizer" class="flex items-end gap-[2px] h-3 ml-1">
-        <span class="w-[2px] h-full bg-[#ffd700] rounded animate-pulse"></span>
-        <span class="w-[2px] h-2 bg-[#ffd700] rounded animate-pulse" style="animation-delay: 0.2s"></span>
-        <span class="w-[2px] h-3 bg-[#ffd700] rounded animate-pulse" style="animation-delay: 0.4s"></span>
+        <span class="w-[2px] h-full bg-[#fef08a] rounded animate-pulse"></span>
+        <span class="w-[2px] h-2 bg-[#fef08a] rounded animate-pulse" style="animation-delay: 0.2s"></span>
+        <span class="w-[2px] h-3 bg-[#fef08a] rounded animate-pulse" style="animation-delay: 0.4s"></span>
       </div>
     </button>
   </div>
@@ -201,72 +201,72 @@
   <!-- ========================================== -->
   <div id="envelope-screen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-opacity duration-1000" style="background: radial-gradient(ellipse at 50% 40%, #ef4444 0%, #dc2626 35%, #b91c1c 70%, #991b1b 100%);">
     
-    <!-- Ambient Floating Romantic Elements (Hearts & Sparkles) -->
+    <!-- Ambient Floating Romantic Elements -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-[1]">
-      <div class="absolute text-xl text-[#ffd700] select-none" style="left: 10%; bottom: -40px; --sway: 20px; animation: ambient-rise 16s ease-in-out infinite;">✨</div>
-      <div class="absolute text-2xl text-[#ffe58f] select-none" style="left: 22%; bottom: -40px; --sway: -15px; animation: ambient-rise 20s ease-in-out 2s infinite;">💛</div>
-      <div class="absolute text-lg text-[#fff] select-none" style="left: 38%; bottom: -40px; --sway: 25px; animation: ambient-rise 18s ease-in-out 1s infinite;">🌸</div>
-      <div class="absolute text-2xl text-[#ffd700] select-none" style="left: 62%; bottom: -40px; --sway: -20px; animation: ambient-rise 22s ease-in-out 3s infinite;">✨</div>
-      <div class="absolute text-xl text-[#ffe58f] select-none" style="left: 78%; bottom: -40px; --sway: 15px; animation: ambient-rise 17s ease-in-out 1.5s infinite;">💛</div>
-      <div class="absolute text-2xl text-[#fff] select-none" style="left: 90%; bottom: -40px; --sway: -30px; animation: ambient-rise 23s ease-in-out 4s infinite;">🌸</div>
+      <div class="absolute text-xl text-[#fef08a] select-none" style="left: 10%; bottom: -40px; --sway: 20px; animation: ambient-rise 16s ease-in-out infinite;">✨</div>
+      <div class="absolute text-2xl text-white select-none" style="left: 22%; bottom: -40px; --sway: -15px; animation: ambient-rise 20s ease-in-out 2s infinite;">💛</div>
+      <div class="absolute text-xl text-white select-none" style="left: 38%; bottom: -40px; --sway: 25px; animation: ambient-rise 18s ease-in-out 1s infinite;">🌸</div>
+      <div class="absolute text-2xl text-[#fef08a] select-none" style="left: 62%; bottom: -40px; --sway: -20px; animation: ambient-rise 22s ease-in-out 3s infinite;">✨</div>
+      <div class="absolute text-xl text-white select-none" style="left: 78%; bottom: -40px; --sway: 15px; animation: ambient-rise 17s ease-in-out 1.5s infinite;">💛</div>
+      <div class="absolute text-2xl text-white select-none" style="left: 90%; bottom: -40px; --sway: -30px; animation: ambient-rise 23s ease-in-out 4s infinite;">🌸</div>
     </div>
 
     <!-- The Envelope Container -->
-    <div class="envelope-perspective relative z-10 w-[92vw] max-w-[460px] sm:max-w-[500px]">
+    <div class="envelope-perspective relative z-10 w-[92vw] max-w-[480px]">
       
-      <!-- Envelope Outer Card (Tươi Sáng, Tinh Tế) -->
-      <div id="envelope-box" class="envelope-card relative w-full bg-gradient-to-b from-[#dc2626] via-[#c51d24] to-[#991b1b] rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border-2 border-[#ffe58f] p-6 sm:p-8 text-center overflow-hidden">
+      <!-- Envelope Outer Card -->
+      <div id="envelope-box" class="envelope-card relative w-full bg-gradient-to-b from-[#dc2626] via-[#c51d24] to-[#991b1b] rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border-2 border-[#fef08a]/60 p-6 sm:p-8 text-center overflow-hidden">
         
-        <!-- Subtle Watermark Dragon & Phoenix in Envelope Background -->
+        <!-- Subtle Watermark Dragon & Phoenix -->
         <div class="absolute inset-0 flex items-center justify-between opacity-15 pointer-events-none px-2">
           <img src="assets/rong.webp" alt="Rồng" class="h-64 object-contain">
           <img src="assets/phuong.webp" alt="Phượng" class="h-64 object-contain">
         </div>
 
-        <!-- Oriental Corner Ornaments (Vàng Sáng) -->
-        <div class="absolute top-3 left-3 text-[#ffe58f] text-sm">╔══</div>
-        <div class="absolute top-3 right-3 text-[#ffe58f] text-sm">══╗</div>
-        <div class="absolute bottom-3 left-3 text-[#ffe58f] text-sm">╚══</div>
-        <div class="absolute bottom-3 right-3 text-[#ffe58f] text-sm">══╝</div>
+        <!-- Oriental Corner Ornaments -->
+        <div class="absolute top-3 left-3 text-[#fef08a]/70 text-sm">╔══</div>
+        <div class="absolute top-3 right-3 text-[#fef08a]/70 text-sm">══╗</div>
+        <div class="absolute bottom-3 left-3 text-[#fef08a]/70 text-sm">╚══</div>
+        <div class="absolute bottom-3 right-3 text-[#fef08a]/70 text-sm">══╝</div>
 
-        <!-- Cute Chibi Couple Highlight on Envelope -->
-        <div class="relative z-10 mx-auto w-24 h-24 rounded-full border-2 border-[#ffd700] bg-gradient-to-b from-[#fff7ed] to-[#fed7aa] p-1 shadow-xl mb-3 flex items-center justify-center overflow-hidden">
+        <!-- Cute Chibi Couple Highlight -->
+        <div class="relative z-10 mx-auto w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#fef08a] bg-gradient-to-b from-[#fff7ed] to-[#fed7aa] p-1 shadow-xl mb-3 flex items-center justify-center overflow-hidden">
           <img src="assets/photos/chibi-couple.jpg" alt="Danh Lâm & Yến Linh Chibi" class="w-full h-full object-cover rounded-full">
         </div>
 
-        <p class="text-xs uppercase tracking-[0.35em] text-[#fff6cc] font-cinzel font-bold mb-1 drop-shadow">
+        <p class="text-sm sm:text-base uppercase tracking-[0.35em] text-white font-cinzel font-bold mb-1 drop-shadow">
           THIỆP MỜI LỄ VU QUY
         </p>
-        <p class="text-xs text-[#ffe58f] font-serif mb-3 tracking-wider italic">
+        <p class="text-xs sm:text-sm text-[#fef08a] font-serif mb-3 tracking-wider italic">
           Trân Trọng Kính Mời
         </p>
 
         <!-- Groom & Bride Names in Luxury Calligraphy -->
         <div class="font-pinyon text-white leading-none my-2 py-1">
-          <div class="text-4xl sm:text-5xl font-normal text-gold-gradient drop-shadow-md">Danh Lâm</div>
-          <div class="text-2xl sm:text-3xl text-[#ffe58f] my-1 font-greatvibes">&amp;</div>
-          <div class="text-4xl sm:text-5xl font-normal text-gold-gradient drop-shadow-md">Yến Linh</div>
+          <div class="text-5xl sm:text-6xl font-normal text-gold-gradient drop-shadow-md">Danh Lâm</div>
+          <div class="text-2xl sm:text-3xl text-[#fef08a] my-1 font-greatvibes">&amp;</div>
+          <div class="text-5xl sm:text-6xl font-normal text-gold-gradient drop-shadow-md">Yến Linh</div>
         </div>
 
         <!-- Date Banner on Envelope -->
-        <div class="my-3 border-y border-[#ffe58f]/40 py-2 bg-black/10 rounded-lg">
-          <p class="text-sm font-serif font-bold tracking-widest text-[#fff3d6]">18 THÁNG 11 NĂM 2026</p>
-          <p class="text-[11px] text-[#ffe58f] tracking-wide mt-0.5">Nhằm ngày 10 tháng 10 năm Bính Ngọ</p>
+        <div class="my-3.5 border-y border-[#fef08a]/40 py-2.5 bg-black/10 rounded-xl">
+          <p class="text-base sm:text-lg font-serif font-bold tracking-widest text-white">18 THÁNG 11 NĂM 2026</p>
+          <p class="text-xs sm:text-sm text-[#fef08a] tracking-wide mt-1">Nhằm ngày 10 tháng 10 năm Bính Ngọ</p>
         </div>
 
         <!-- Romantic quote excerpt -->
-        <p class="text-xs text-[#fff7ed] italic max-w-xs mx-auto mb-5 leading-relaxed">
+        <p class="text-xs sm:text-sm text-[#fff7ed] italic max-w-xs mx-auto mb-5 leading-relaxed">
           "Cùng nhau đi khắp thế gian,<br>cùng nhau về chung một nhà."
         </p>
 
-        <!-- Interactive Wax Seal / Open Button -->
+        <!-- Interactive Open Button (Nhã nhặn, sang trọng) -->
         <div class="relative pt-1 pb-2">
-          <button id="open-envelope-btn" class="wax-seal group relative inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-gradient-to-r from-[#fff3b0] via-[#ffd700] to-[#fff3b0] text-[#7f1d1d] font-bold text-sm tracking-wider shadow-[0_10px_25px_rgba(255,215,0,0.5)] hover:scale-105 active:scale-95 transition-all duration-300">
+          <button id="open-envelope-btn" class="wax-seal group relative inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#fffdf7] hover:bg-[#fff9e6] text-[#881313] border-2 border-[#fef08a] font-bold text-sm sm:text-base tracking-wider shadow-xl transition-all duration-300">
             <span class="mr-2 text-lg">💌</span>
-            <span class="font-cinzel tracking-wider uppercase">Mở Thiệp Cưới</span>
+            <span class="font-cinzel tracking-wider uppercase font-bold">Mở Thiệp Cưới</span>
             <span class="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">➔</span>
           </button>
-          <p class="text-[11px] text-[#ffe58f]/80 mt-2.5 tracking-wide">Nhấn vào đây để mở thiệp cưới và lắng nghe giai điệu</p>
+          <p class="text-xs text-[#fef08a]/90 mt-2.5 tracking-wide">Nhấn vào đây để mở thiệp cưới và lắng nghe giai điệu</p>
         </div>
 
       </div>
@@ -276,7 +276,7 @@
   <!-- ========================================== -->
   <!-- 2. MAIN WEDDING INVITATION WEBSITE         -->
   <!-- ========================================== -->
-  <main id="main-invitation" class="relative max-w-xl mx-auto min-h-screen bg-gradient-to-b from-[#991b1b] via-[#881313] to-[#6d0d0d] text-[#fff2b2] shadow-2xl border-x border-[#ffe58f]/30 overflow-hidden pb-16">
+  <main id="main-invitation" class="relative max-w-xl mx-auto min-h-screen bg-gradient-to-b from-[#991b1b] via-[#881313] to-[#6d0d0d] text-[#fff8ea] shadow-2xl border-x border-[#fef08a]/30 overflow-hidden pb-16">
 
     <!-- Parallax Background Clouds & Oriental Textures -->
     <div class="absolute inset-0 pointer-events-none opacity-20 z-0 bg-cover bg-center" style="background-image: url('assets/bg-main.webp');"></div>
@@ -296,22 +296,22 @@
 
       <!-- Top Wedding Rings Emblem -->
       <div class="relative z-10 mb-3 flex items-center justify-center">
-        <div class="w-14 h-14 rounded-full border-2 border-[#ffe58f] bg-[#881313] flex items-center justify-center shadow-lg">
+        <div class="w-14 h-14 rounded-full border-2 border-[#fef08a] bg-[#881313] flex items-center justify-center shadow-lg">
           <span class="text-2xl">💍</span>
         </div>
       </div>
 
-      <div class="relative z-10 text-xs sm:text-sm uppercase tracking-[0.35em] text-[#fff6cc] font-cinzel font-bold mb-1">
+      <div class="relative z-10 text-sm sm:text-base uppercase tracking-[0.35em] text-white font-cinzel font-bold mb-1">
         THIỆP MỜI LỄ VU QUY
       </div>
-      <div class="relative z-10 text-[11px] text-[#ffe58f]/80 tracking-widest font-serif mb-4">
+      <div class="relative z-10 text-xs sm:text-sm text-[#fef08a] tracking-widest font-serif mb-4">
         WEDDING INVITATION
       </div>
 
       <!-- Bride & Groom Names Calligraphy -->
       <div class="relative z-10 font-pinyon w-full my-2 text-gold-gradient">
         <div class="text-5xl sm:text-6xl md:text-7xl leading-tight drop-shadow-md">Danh Lâm</div>
-        <div class="font-greatvibes text-3xl sm:text-4xl text-[#ffe58f] my-1">&amp;</div>
+        <div class="font-greatvibes text-3xl sm:text-4xl text-[#fef08a] my-1">&amp;</div>
         <div class="text-5xl sm:text-6xl md:text-7xl leading-tight drop-shadow-md">Yến Linh</div>
       </div>
 
@@ -321,9 +321,9 @@
       </div>
 
       <!-- Date Banner -->
-      <div class="relative z-10 inline-flex flex-col items-center bg-[#700c0c]/85 border border-[#ffe58f]/50 rounded-2xl px-7 py-2.5 shadow-lg">
-        <span class="text-base sm:text-lg font-serif font-bold tracking-widest text-[#ffd700]">18 . 11 . 2026</span>
-        <span class="text-xs text-[#ffe58f]/90 mt-0.5">Thứ Tư, Ngày 10 Tháng 10 Năm Bính Ngọ</span>
+      <div class="relative z-10 inline-flex flex-col items-center bg-[#700c0c]/90 border border-[#fef08a]/60 rounded-2xl px-8 py-3 shadow-lg">
+        <span class="text-lg sm:text-xl font-serif font-bold tracking-widest text-white">18 . 11 . 2026</span>
+        <span class="text-xs sm:text-sm text-[#fef08a] font-medium mt-1">Thứ Tư, Ngày 10 Tháng 10 Năm Bính Ngọ</span>
       </div>
 
     </header>
@@ -331,19 +331,31 @@
     <!-- ========================================== -->
     <!-- SECTION 2: ROMANTIC QUOTE / POEM           -->
     <!-- ========================================== -->
-    <section class="relative z-10 px-6 py-7 text-center mx-4 my-3 rounded-2xl bg-[#7f1d1d]/70 border border-[#ffe58f]/40 shadow-xl backdrop-blur-sm">
-      <div class="text-xs uppercase tracking-[0.25em] text-[#ffe58f] mb-3 font-cinzel font-semibold">✦ CÙNG NHAU ✦</div>
+    <section class="relative z-10 px-6 py-8 text-center mx-4 my-4 rounded-3xl bg-[#7f1d1d]/80 border-2 border-[#fef08a]/40 shadow-2xl backdrop-blur-sm">
       
-      <p class="font-pinyon text-3xl sm:text-4xl text-[#fff3b0] mb-2 leading-relaxed">"Là một từ rất lãng mạn"</p>
+      <!-- Chữ CÙNG NHAU to hơn và nổi bật hơn -->
+      <div class="relative inline-block mb-3">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-cinzel font-extrabold uppercase tracking-[0.2em] text-white drop-shadow-lg">
+          CÙNG NHAU
+        </h2>
+        <span class="inline-block text-xs sm:text-sm uppercase tracking-[0.3em] text-[#fef08a] mt-1 font-semibold">
+          18 . 11 . 2026
+        </span>
+      </div>
       
-      <div class="font-serif italic text-sm sm:text-base text-[#fff7ed] space-y-1.5 my-3">
+      <p class="font-pinyon text-4xl sm:text-5xl text-[#fef9c3] mb-3 leading-relaxed drop-shadow">
+        "Là một từ rất lãng mạn"
+      </p>
+      
+      <!-- Lời thơ với "cùng nhau về nhà" màu đơn giản nhã nhặn -->
+      <div class="font-serif italic text-base sm:text-lg text-[#fff7ed] space-y-2 my-4 leading-relaxed">
         <p>Cùng nhau trưởng thành, cùng nhau già đi</p>
         <p>Cùng nhau đi khắp thế gian,</p>
-        <p class="font-semibold text-[#ffd700]">cùng nhau về chung 1 nhà.</p>
+        <p class="font-semibold text-white tracking-wide">cùng nhau về chung 1 nhà.</p>
       </div>
 
-      <div class="mt-4 pt-3 border-t border-[#ffe58f]/30 text-xs tracking-wider text-[#ffe58f]/90">
-        Trích sách: <span class="text-[#ffd700] font-semibold italic">"Chúng ta sinh ra là để hạnh phúc"</span>
+      <div class="mt-5 pt-3.5 border-t border-white/20 text-xs sm:text-sm tracking-wider text-[#fef08a]">
+        Trích sách: <span class="text-white font-medium italic">"Chúng ta sinh ra là để hạnh phúc"</span>
       </div>
     </section>
 
@@ -351,17 +363,17 @@
     <!-- SECTION 3: HERO FEATURED PHOTO (HÌNH THẬT) -->
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-4">
-      <div class="relative rounded-3xl overflow-hidden border-2 border-[#ffe58f] shadow-2xl group bg-[#700c0c]/80 p-2 cursor-pointer" onclick="openLightbox(0)">
+      <div class="relative rounded-3xl overflow-hidden border-2 border-[#fef08a] shadow-2xl group bg-[#700c0c]/80 p-2 cursor-pointer" onclick="openLightbox(0)">
         <div class="rounded-2xl overflow-hidden relative">
           <img src="assets/photos/photo1.jpg" alt="Danh Lâm & Yến Linh" class="w-full h-auto object-cover transform duration-700 group-hover:scale-105">
           <div class="absolute inset-0 bg-gradient-to-t from-[#500808]/90 via-transparent to-transparent flex items-end p-5">
             <div class="text-left">
-              <span class="text-xs uppercase tracking-widest text-[#ffd700] font-cinzel font-bold">Happy Wedding</span>
-              <h3 class="font-serif text-lg text-white font-bold">Danh Lâm &amp; Yến Linh</h3>
-              <p class="text-xs text-[#ffe58f]">Lễ Vu Quy • 18.11.2026</p>
+              <span class="text-xs sm:text-sm uppercase tracking-widest text-[#fef08a] font-cinzel font-bold">Happy Wedding</span>
+              <h3 class="font-serif text-xl sm:text-2xl text-white font-bold">Danh Lâm &amp; Yến Linh</h3>
+              <p class="text-xs sm:text-sm text-[#fef08a]">Lễ Vu Quy • 18.11.2026</p>
             </div>
           </div>
-          <div class="absolute top-3 right-3 bg-[#500808]/80 text-[#ffd700] text-xs px-3 py-1 rounded-full border border-[#ffe58f]/50 flex items-center gap-1 shadow">
+          <div class="absolute top-3 right-3 bg-[#500808]/85 text-white text-xs sm:text-sm px-3.5 py-1.5 rounded-full border border-[#fef08a]/60 flex items-center gap-1.5 shadow">
             <span>🔍</span> Phóng to
           </div>
         </div>
@@ -370,54 +382,56 @@
 
     <!-- ========================================== -->
     <!-- SECTION 4: THÔNG TIN GIA ĐÌNH HAI BÊN     -->
+    <!-- (Đã chỉnh cân đối hoàn hảo, không bị lệch) -->
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-6">
       
       <div class="text-center mb-6">
-        <h2 class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-gold-gradient uppercase">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient uppercase">
           THÔNG TIN GIA ĐÌNH
         </h2>
         <div class="w-24 mx-auto my-2"><img src="assets/line6.svg" alt="divider" class="w-full h-1"></div>
-        <p class="text-xs text-[#ffe58f]/80 italic">Kính báo tin mừng cùng hai họ</p>
+        <p class="text-xs sm:text-sm text-[#fef08a] italic">Kính báo tin mừng cùng hai họ</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Two perfectly balanced cards -->
+      <div class="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4">
         
         <!-- NHÀ GÁI (Thay mặt song thân nhà gái) -->
-        <div class="relative bg-[#700c0c]/85 rounded-2xl p-5 border border-[#ffe58f]/40 shadow-lg flex flex-col justify-between">
-          <div class="absolute top-3 right-3 text-[11px] text-[#ffd700] font-cinzel uppercase tracking-widest border-b border-[#ffd700]/40 pb-0.5 font-bold">
-            Nhà Gái
-          </div>
+        <div class="bg-[#780f0f]/90 rounded-2xl p-5 sm:p-6 border border-[#fef08a]/40 shadow-xl text-center flex flex-col justify-between h-full">
           <div>
-            <div class="text-xs uppercase tracking-wider text-[#ffd700] font-semibold mb-2">
-              Thay mặt song thân nhà gái
+            <div class="inline-block px-4 py-1 rounded-full bg-[#991b1b] border border-[#fef08a]/60 text-xs sm:text-sm font-bold text-white uppercase tracking-widest mb-3">
+              NHÀ GÁI
             </div>
-            <div class="space-y-1.5 font-serif text-sm">
-              <p><span class="text-[#ffe58f]/80">Ông:</span> <strong class="text-base text-white">DANH ĐẸ</strong></p>
-              <p><span class="text-[#ffe58f]/80">Bà:</span> <strong class="text-base text-white">THỊ THỦY</strong></p>
+            <p class="text-xs sm:text-sm text-[#fef08a] font-semibold uppercase tracking-wider mb-3">
+              Thay mặt song thân
+            </p>
+            <div class="space-y-2 font-serif text-base sm:text-lg">
+              <p class="text-white"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-lg sm:text-xl font-bold">DANH ĐẸ</strong></p>
+              <p class="text-white"><span class="text-[#fef08a] text-sm">Bà:</span> <strong class="text-lg sm:text-xl font-bold">THỊ THỦY</strong></p>
             </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-[#ffe58f]/20 text-xs text-[#fff7ed] flex items-start gap-1.5">
+          <div class="mt-4 pt-3.5 border-t border-white/20 text-xs sm:text-sm text-[#fff7ed] flex items-center justify-center gap-1.5">
             <span class="text-sm">📍</span>
-            <span>Ấp Thanh Hưng, xã Thạnh Lộc, An Giang</span>
+            <span>Ấp Thanh Hưng, Thạnh Lộc, An Giang</span>
           </div>
         </div>
 
         <!-- NHÀ TRAI -->
-        <div class="relative bg-[#700c0c]/85 rounded-2xl p-5 border border-[#ffe58f]/40 shadow-lg flex flex-col justify-between">
-          <div class="absolute top-3 right-3 text-[11px] text-[#ffd700] font-cinzel uppercase tracking-widest border-b border-[#ffd700]/40 pb-0.5 font-bold">
-            Nhà Trai
-          </div>
+        <div class="bg-[#780f0f]/90 rounded-2xl p-5 sm:p-6 border border-[#fef08a]/40 shadow-xl text-center flex flex-col justify-between h-full">
           <div>
-            <div class="text-xs uppercase tracking-wider text-[#ffd700] font-semibold mb-2">
-              Song thân nhà trai
+            <div class="inline-block px-4 py-1 rounded-full bg-[#991b1b] border border-[#fef08a]/60 text-xs sm:text-sm font-bold text-white uppercase tracking-widest mb-3">
+              NHÀ TRAI
             </div>
-            <div class="space-y-1.5 font-serif text-sm">
-              <p><span class="text-[#ffe58f]/80">Ông:</span> <strong class="text-base text-white">DANH BẢNH</strong> <span class="text-xs text-[#ffe58f]/80">(Có phụ)</span></p>
-              <p><span class="text-[#ffe58f]/80">Bà:</span> <strong class="text-base text-white">NGÔ THỊ NHỊ</strong></p>
+            <p class="text-xs sm:text-sm text-[#fef08a] font-semibold uppercase tracking-wider mb-3">
+              Song thân nhà trai
+            </p>
+            <div class="space-y-2 font-serif text-base sm:text-lg">
+              <p class="text-white"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-lg sm:text-xl font-bold">DANH BẢNH</strong> <span class="text-xs text-[#fef08a] font-normal">(Có phụ)</span></p>
+              <p class="text-white"><span class="text-[#fef08a] text-sm">Bà:</span> <strong class="text-lg sm:text-xl font-bold">NGÔ THỊ NHỊ</strong></p>
             </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-[#ffe58f]/20 text-xs text-[#fff7ed] flex items-start gap-1.5">
+          <div class="mt-4 pt-3.5 border-t border-white/20 text-xs sm:text-sm text-[#fff7ed] flex items-center justify-center gap-1.5">
             <span class="text-sm">📍</span>
             <span>Ấp Minh Long, Châu Thành, An Giang</span>
           </div>
@@ -432,53 +446,53 @@
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-6 text-center">
       
-      <div class="bg-gradient-to-b from-[#7f1d1d]/90 to-[#620a0a]/90 rounded-3xl p-6 border-2 border-[#ffe58f]/50 shadow-2xl">
-        <p class="text-xs uppercase tracking-[0.2em] text-[#ffe58f] font-semibold mb-3">
+      <div class="bg-gradient-to-b from-[#7f1d1d]/90 to-[#620a0a]/90 rounded-3xl p-6 sm:p-7 border-2 border-[#fef08a]/50 shadow-2xl">
+        <p class="text-sm sm:text-base uppercase tracking-wider text-[#fef08a] font-bold mb-3">
           Trân trọng báo tin "Lễ Vu Quy" của con chúng tôi
         </p>
         
         <div class="grid grid-cols-2 gap-4 items-center my-4">
           
           <!-- Chú rể Chibi -->
-          <div class="p-3.5 bg-[#450a0a]/80 rounded-2xl border border-[#ffe58f]/30 flex flex-col items-center shadow-md">
-            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#ffd700] overflow-hidden mb-2 shadow-lg bg-[#fff7ed]">
+          <div class="p-4 bg-[#450a0a]/85 rounded-2xl border border-[#fef08a]/35 flex flex-col items-center shadow-md">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#fef08a] overflow-hidden mb-2 shadow-lg bg-[#fff7ed]">
               <img src="assets/photos/chibi-groom.jpg" alt="Chú rể Danh Lâm Chibi" class="w-full h-full object-cover">
             </div>
-            <span class="text-[11px] uppercase tracking-wider text-[#ffd700] font-cinzel font-bold">Chú Rể</span>
+            <span class="text-xs sm:text-sm uppercase tracking-wider text-[#fef08a] font-cinzel font-bold">Chú Rể</span>
             <h3 class="font-pinyon text-3xl sm:text-4xl text-white my-1">Danh Lâm</h3>
-            <span class="inline-block text-[11px] bg-[#991b1b] text-[#fff2b2] px-3 py-0.5 rounded-full border border-[#ffe58f]/40 font-serif font-semibold">
+            <span class="inline-block text-xs sm:text-sm bg-[#991b1b] text-white px-3.5 py-0.5 rounded-full border border-[#fef08a]/40 font-serif font-semibold">
               Trưởng Nam
             </span>
           </div>
 
           <!-- Cô dâu Chibi -->
-          <div class="p-3.5 bg-[#450a0a]/80 rounded-2xl border border-[#ffe58f]/30 flex flex-col items-center shadow-md">
-            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#ffd700] overflow-hidden mb-2 shadow-lg bg-[#fff7ed]">
+          <div class="p-4 bg-[#450a0a]/85 rounded-2xl border border-[#fef08a]/35 flex flex-col items-center shadow-md">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#fef08a] overflow-hidden mb-2 shadow-lg bg-[#fff7ed]">
               <img src="assets/photos/chibi-bride.jpg" alt="Cô dâu Yến Linh Chibi" class="w-full h-full object-cover">
             </div>
-            <span class="text-[11px] uppercase tracking-wider text-[#ffd700] font-cinzel font-bold">Cô Dâu</span>
+            <span class="text-xs sm:text-sm uppercase tracking-wider text-[#fef08a] font-cinzel font-bold">Cô Dâu</span>
             <h3 class="font-pinyon text-3xl sm:text-4xl text-white my-1">Yến Linh</h3>
-            <span class="inline-block text-[11px] bg-[#991b1b] text-[#fff2b2] px-3 py-0.5 rounded-full border border-[#ffe58f]/40 font-serif font-semibold">
+            <span class="inline-block text-xs sm:text-sm bg-[#991b1b] text-white px-3.5 py-0.5 rounded-full border border-[#fef08a]/40 font-serif font-semibold">
               Út Nữ
             </span>
           </div>
 
         </div>
 
-        <div class="my-4 border-t border-[#ffe58f]/25 pt-4">
-          <p class="text-xs text-[#ffe58f] uppercase tracking-widest font-cinzel font-bold">Nghi Lễ Cử Hành</p>
-          <p class="text-base font-serif text-[#ffd700] font-bold mt-1">Hôn lễ được cử hành tại TƯ GIA</p>
-          <div class="flex items-center justify-center gap-2 mt-2 text-sm text-[#fff7ed]">
+        <div class="my-4 border-t border-white/20 pt-4">
+          <p class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-widest font-cinzel font-bold">Nghi Lễ Cử Hành</p>
+          <p class="text-lg sm:text-xl font-serif text-white font-bold mt-1">Hôn lễ được cử hành tại TƯ GIA</p>
+          <div class="flex items-center justify-center gap-2 mt-2 text-base sm:text-lg text-[#fff7ed] font-semibold">
             <span>⏰ 10h30, Thứ Tư</span>
             <span>•</span>
             <span>18/11/2026</span>
           </div>
-          <p class="text-xs text-[#ffe58f] mt-1 italic">(Nhằm ngày 10 tháng 10 năm Bính Ngọ)</p>
+          <p class="text-xs sm:text-sm text-[#fef08a] mt-1 italic">(Nhằm ngày 10 tháng 10 năm Bính Ngọ)</p>
         </div>
 
-        <!-- Add to Calendar Button -->
-        <div class="mt-4 flex flex-wrap justify-center gap-2">
-          <a id="btn-add-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+Vu+Quy+Danh+L%C3%A2m+%26+Y%E1%BA%BFn+Linh&dates=20261118T033000Z/20261118T070000Z&details=H%C3%B4n+l%E1%BB%85+L%E1%BB%85+Vu+Quy+Danh+L%C3%A2m+%26+Y%E1%BA%BFn+Linh+t%E1%BA%A1i+T%C6%B0+gia+%E1%BA%A4p+Thanh+H%C3%B2a,+x%C3%A3+Th%E1%BA%A1nh+L%E1%BB%99c,+An+Giang&location=%E1%BA%A4p+Thanh+H%C3%B2a,+x%C3%A3+Th%E1%BA%A1nh+L%E1%BB%99c,+An+Giang" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#ffe58f] via-[#ffd700] to-[#ffe58f] text-[#7f1d1d] text-xs font-bold shadow-md hover:scale-105 transition">
+        <!-- Add to Calendar Button (Màu nhã nhặn, sang trọng) -->
+        <div class="mt-5 flex flex-wrap justify-center gap-2">
+          <a id="btn-add-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+Vu+Quy+Danh+L%C3%A2m+%26+Y%E1%BA%BFn+Linh&dates=20261118T033000Z/20261118T070000Z&details=H%C3%B4n+l%E1%BB%85+L%E1%BB%85+Vu+Quy+Danh+L%C3%A2m+%26+Y%E1%BA%BFn+Linh+t%E1%BA%A1i+T%C6%B0+gia+%E1%BA%A4p+Thanh+H%C3%B2a,+x%C3%A3+Th%E1%BA%A1nh+L%E1%BB%99c,+An+Giang&location=%E1%BA%A4p+Thanh+H%C3%B2a,+x%C3%A3+Th%E1%BA%A1nh+L%E1%BB%99c,+An+Giang" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#881313] hover:bg-[#991b1b] border-2 border-[#fef08a]/60 text-white text-xs sm:text-sm font-bold shadow-lg transition">
             <span>📅</span> Thêm vào Google Calendar
           </a>
         </div>
@@ -491,31 +505,31 @@
     <!-- SECTION 6: LIVE COUNTDOWN CLOCK            -->
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-6 text-center">
-      <div class="bg-[#700c0c]/85 rounded-3xl p-6 border border-[#ffe58f]/40 shadow-xl">
-        <h3 class="text-xs uppercase tracking-[0.25em] text-[#fff6cc] mb-1 font-cinzel font-bold">ĐẾM NGƯỢC ĐẾN NGÀY CHUNG ĐÔI</h3>
-        <p class="text-xs text-[#ffd700] italic font-serif mb-5">18 Tháng 11 Năm 2026</p>
+      <div class="bg-[#700c0c]/90 rounded-3xl p-6 border border-[#fef08a]/40 shadow-xl">
+        <h3 class="text-sm sm:text-base uppercase tracking-[0.25em] text-white mb-1 font-cinzel font-bold">ĐẾM NGƯỢC ĐẾN NGÀY CHUNG ĐÔI</h3>
+        <p class="text-xs sm:text-sm text-[#fef08a] italic font-serif mb-5">18 Tháng 11 Năm 2026</p>
 
         <!-- Timer boxes -->
-        <div class="grid grid-cols-4 gap-2 sm:gap-3 max-w-sm mx-auto">
+        <div class="grid grid-cols-4 gap-2.5 sm:gap-3.5 max-w-sm mx-auto">
           
-          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#ffe58f]/30 shadow-inner">
-            <span id="days" class="block font-serif text-2xl sm:text-3xl font-bold text-[#ffd700]">00</span>
-            <span class="text-[10px] text-[#ffe58f] uppercase tracking-wider font-semibold">Ngày</span>
+          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#fef08a]/30 shadow-inner">
+            <span id="days" class="block font-serif text-3xl sm:text-4xl font-bold text-white">00</span>
+            <span class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-wider font-semibold">Ngày</span>
           </div>
 
-          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#ffe58f]/30 shadow-inner">
-            <span id="hours" class="block font-serif text-2xl sm:text-3xl font-bold text-[#ffd700]">00</span>
-            <span class="text-[10px] text-[#ffe58f] uppercase tracking-wider font-semibold">Giờ</span>
+          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#fef08a]/30 shadow-inner">
+            <span id="hours" class="block font-serif text-3xl sm:text-4xl font-bold text-white">00</span>
+            <span class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-wider font-semibold">Giờ</span>
           </div>
 
-          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#ffe58f]/30 shadow-inner">
-            <span id="minutes" class="block font-serif text-2xl sm:text-3xl font-bold text-[#ffd700]">00</span>
-            <span class="text-[10px] text-[#ffe58f] uppercase tracking-wider font-semibold">Phút</span>
+          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#fef08a]/30 shadow-inner">
+            <span id="minutes" class="block font-serif text-3xl sm:text-4xl font-bold text-white">00</span>
+            <span class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-wider font-semibold">Phút</span>
           </div>
 
-          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#ffe58f]/30 shadow-inner">
-            <span id="seconds" class="block font-serif text-2xl sm:text-3xl font-bold text-[#ffd700]">00</span>
-            <span class="text-[10px] text-[#ffe58f] uppercase tracking-wider font-semibold">Giây</span>
+          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#fef08a]/30 shadow-inner">
+            <span id="seconds" class="block font-serif text-3xl sm:text-4xl font-bold text-white">00</span>
+            <span class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-wider font-semibold">Giây</span>
           </div>
 
         </div>
@@ -528,41 +542,41 @@
     <section class="relative z-10 px-6 py-6">
       
       <div class="text-center mb-6">
-        <h2 class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-gold-gradient uppercase">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient uppercase">
           ALBUM HÌNH CƯỚI
         </h2>
         <div class="w-24 mx-auto my-2"><img src="assets/line6.svg" alt="divider" class="w-full h-1"></div>
-        <p class="text-xs text-[#ffe58f]/80 italic">Khoảnh khắc hạnh phúc của chúng mình</p>
+        <p class="text-xs sm:text-sm text-[#fef08a] italic">Khoảnh khắc hạnh phúc của chúng mình</p>
       </div>
 
       <!-- Photos Grid -->
-      <div class="grid grid-cols-2 gap-3 sm:gap-4">
+      <div class="grid grid-cols-2 gap-3.5 sm:gap-4">
         
-        <div class="relative group rounded-2xl overflow-hidden border border-[#ffe58f]/40 shadow-lg cursor-pointer aspect-[3/4]" onclick="openLightbox(0)">
+        <div class="relative group rounded-2xl overflow-hidden border border-[#fef08a]/40 shadow-lg cursor-pointer aspect-[3/4]" onclick="openLightbox(0)">
           <img src="assets/photos/photo1.jpg" alt="Khoảnh khắc 1" class="w-full h-full object-cover transition duration-500 group-hover:scale-108">
           <div class="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-            <span class="text-white text-xs bg-[#7f1d1d]/90 px-3 py-1.5 rounded-full border border-[#ffe58f]">🔍 Xem ảnh</span>
+            <span class="text-white text-xs sm:text-sm bg-[#7f1d1d]/90 px-3.5 py-1.5 rounded-full border border-[#fef08a]">🔍 Xem ảnh</span>
           </div>
         </div>
 
-        <div class="relative group rounded-2xl overflow-hidden border border-[#ffe58f]/40 shadow-lg cursor-pointer aspect-[3/4]" onclick="openLightbox(1)">
+        <div class="relative group rounded-2xl overflow-hidden border border-[#fef08a]/40 shadow-lg cursor-pointer aspect-[3/4]" onclick="openLightbox(1)">
           <img src="assets/photos/photo2.jpg" alt="Khoảnh khắc 2" class="w-full h-full object-cover transition duration-500 group-hover:scale-108">
           <div class="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-            <span class="text-white text-xs bg-[#7f1d1d]/90 px-3 py-1.5 rounded-full border border-[#ffe58f]">🔍 Xem ảnh</span>
+            <span class="text-white text-xs sm:text-sm bg-[#7f1d1d]/90 px-3.5 py-1.5 rounded-full border border-[#fef08a]">🔍 Xem ảnh</span>
           </div>
         </div>
 
-        <div class="relative group rounded-2xl overflow-hidden border border-[#ffe58f]/40 shadow-lg cursor-pointer aspect-[3/4]" onclick="openLightbox(2)">
+        <div class="relative group rounded-2xl overflow-hidden border border-[#fef08a]/40 shadow-lg cursor-pointer aspect-[3/4]" onclick="openLightbox(2)">
           <img src="assets/photos/photo3.jpg" alt="Khoảnh khắc 3" class="w-full h-full object-cover transition duration-500 group-hover:scale-108">
           <div class="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-            <span class="text-white text-xs bg-[#7f1d1d]/90 px-3 py-1.5 rounded-full border border-[#ffe58f]">🔍 Xem ảnh</span>
+            <span class="text-white text-xs sm:text-sm bg-[#7f1d1d]/90 px-3.5 py-1.5 rounded-full border border-[#fef08a]">🔍 Xem ảnh</span>
           </div>
         </div>
 
-        <div class="relative group rounded-2xl overflow-hidden border border-[#ffe58f]/40 shadow-lg cursor-pointer aspect-[3/4]" onclick="openLightbox(3)">
+        <div class="relative group rounded-2xl overflow-hidden border border-[#fef08a]/40 shadow-lg cursor-pointer aspect-[3/4]" onclick="openLightbox(3)">
           <img src="assets/photos/photo4.jpg" alt="Khoảnh khắc 4" class="w-full h-full object-cover transition duration-500 group-hover:scale-108">
           <div class="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-            <span class="text-white text-xs bg-[#7f1d1d]/90 px-3 py-1.5 rounded-full border border-[#ffe58f]">🔍 Xem ảnh</span>
+            <span class="text-white text-xs sm:text-sm bg-[#7f1d1d]/90 px-3.5 py-1.5 rounded-full border border-[#fef08a]">🔍 Xem ảnh</span>
           </div>
         </div>
 
@@ -575,70 +589,70 @@
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-6">
       
-      <div class="relative bg-gradient-to-b from-[#7f1d1d] to-[#550b0b] rounded-3xl p-6 sm:p-8 border-2 border-[#ffe58f] shadow-2xl text-center overflow-hidden">
+      <div class="relative bg-gradient-to-b from-[#7f1d1d] to-[#550b0b] rounded-3xl p-6 sm:p-8 border-2 border-[#fef08a] shadow-2xl text-center overflow-hidden">
         
         <!-- Corner decorations -->
-        <div class="absolute top-3 left-3 text-[#ffe58f] text-sm">╔══</div>
-        <div class="absolute top-3 right-3 text-[#ffe58f] text-sm">══╗</div>
-        <div class="absolute bottom-3 left-3 text-[#ffe58f] text-sm">╚══</div>
-        <div class="absolute bottom-3 right-3 text-[#ffe58f] text-sm">══╝</div>
+        <div class="absolute top-3 left-3 text-[#fef08a]/70 text-sm">╔══</div>
+        <div class="absolute top-3 right-3 text-[#fef08a]/70 text-sm">══╗</div>
+        <div class="absolute bottom-3 left-3 text-[#fef08a]/70 text-sm">╚══</div>
+        <div class="absolute bottom-3 right-3 text-[#fef08a]/70 text-sm">══╝</div>
 
-        <div class="inline-block p-2 rounded-full border border-[#ffd700] mb-2 bg-[#991b1b]">
+        <div class="inline-block p-2 rounded-full border border-[#fef08a] mb-2 bg-[#991b1b]">
           <span class="text-2xl">🏮</span>
         </div>
 
-        <h2 class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-gold-gradient uppercase mb-2">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient uppercase mb-2">
           THƯ MỜI DỰ TIỆC
         </h2>
         
-        <p class="text-xs text-[#ffe58f] italic">Trân trọng kính mời:</p>
+        <p class="text-xs sm:text-sm text-[#fef08a] italic">Trân trọng kính mời:</p>
         
-        <div class="my-3 py-2 border-y border-[#ffe58f]/30">
-          <h3 class="font-serif text-2xl text-[#ffd700] font-bold tracking-wide">
+        <div class="my-3 py-2.5 border-y border-white/20">
+          <h3 class="font-serif text-2xl sm:text-3xl text-white font-extrabold tracking-wide">
             QUÝ GIA ĐÌNH
           </h3>
-          <p class="text-xs text-[#fff7ed] mt-1 italic">Đến tham dự buổi tiệc chung vui cùng gia đình</p>
+          <p class="text-xs sm:text-sm text-[#fff7ed] mt-1.5 italic">Đến tham dự buổi tiệc chung vui cùng gia đình</p>
         </div>
 
         <!-- Banquet Info Cards -->
-        <div class="my-5 space-y-3 text-left bg-[#380606]/70 p-4 rounded-2xl border border-[#ffe58f]/30 text-sm">
+        <div class="my-5 space-y-3.5 text-left bg-[#380606]/80 p-4 sm:p-5 rounded-2xl border border-[#fef08a]/35 text-sm sm:text-base">
           
-          <div class="flex items-center gap-3">
-            <span class="w-9 h-9 rounded-full bg-[#991b1b] flex items-center justify-center text-sm border border-[#ffe58f] text-[#ffd700]">🗓️</span>
+          <div class="flex items-center gap-3.5">
+            <span class="w-10 h-10 rounded-full bg-[#991b1b] flex items-center justify-center text-base border border-[#fef08a] text-white shrink-0">🗓️</span>
             <div>
-              <p class="text-[11px] text-[#ffe58f] uppercase font-semibold">Thời gian</p>
-              <p class="font-bold text-[#ffd700]">10h30 • Thứ Tư, 18/11/2026</p>
-              <p class="text-[11px] text-[#fff7ed]/80 italic">(Tức Ngày 10 Tháng 10 Năm Bính Ngọ)</p>
+              <p class="text-xs text-[#fef08a] uppercase font-bold">Thời gian</p>
+              <p class="font-bold text-lg text-white">10h30 • Thứ Tư, 18/11/2026</p>
+              <p class="text-xs sm:text-sm text-[#fff7ed]/90 italic">(Tức Ngày 10 Tháng 10 Năm Bính Ngọ)</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-3 pt-3 border-t border-[#ffe58f]/20">
-            <span class="w-9 h-9 rounded-full bg-[#991b1b] flex items-center justify-center text-sm border border-[#ffe58f] text-[#ffd700] shrink-0">🏡</span>
+          <div class="flex items-start gap-3.5 pt-3.5 border-t border-white/15">
+            <span class="w-10 h-10 rounded-full bg-[#991b1b] flex items-center justify-center text-base border border-[#fef08a] text-white shrink-0">🏡</span>
             <div>
-              <p class="text-[11px] text-[#ffe58f] uppercase font-semibold">Địa điểm tổ chức</p>
-              <p class="font-bold text-[#ffd700]">TƯ GIA NHÀ GÁI</p>
-              <p class="text-xs text-[#fff7ed] mt-0.5">Ấp Thanh Hòa, xã Thạnh Lộc, An Giang</p>
+              <p class="text-xs text-[#fef08a] uppercase font-bold">Địa điểm tổ chức</p>
+              <p class="font-bold text-lg text-white">TƯ GIA NHÀ GÁI</p>
+              <p class="text-sm text-[#fff7ed] mt-0.5">Ấp Thanh Hòa, xã Thạnh Lộc, An Giang</p>
             </div>
           </div>
 
         </div>
 
-        <!-- Interactive Map Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-2.5 justify-center mt-5">
-          <a href="https://www.google.com/maps?q=10.008426,105.124121" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#ffe58f] via-[#ffd700] to-[#ffe58f] text-[#7f1d1d] font-bold text-xs tracking-wider shadow-lg hover:scale-102 transition">
+        <!-- Interactive Map Action Buttons (Nhã nhặn, sang trọng) -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-5">
+          <a href="https://www.google.com/maps?q=10.008426,105.124121" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#fffdf7] hover:bg-[#fff9e6] text-[#881313] border border-[#fef08a] font-bold text-xs sm:text-sm tracking-wider shadow-lg transition">
             <span>📍</span> Xem vị trí trên Google Maps
           </a>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=10.008426,105.124121" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#450a0a] hover:bg-[#5a0c0c] border border-[#ffe58f] text-[#fff2b2] font-semibold text-xs transition">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=10.008426,105.124121" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#550808] hover:bg-[#680b0b] border border-[#fef08a]/60 text-white font-bold text-xs sm:text-sm transition">
             <span>🚗</span> Chỉ đường
           </a>
         </div>
 
         <!-- Embedded Google Maps Frame -->
-        <div class="mt-5 rounded-2xl overflow-hidden border border-[#ffe58f]/40 shadow-inner">
+        <div class="mt-5 rounded-2xl overflow-hidden border border-[#fef08a]/40 shadow-inner">
           <iframe 
             src="https://maps.google.com/maps?q=10.008426,105.124121&hl=vi&z=15&output=embed" 
             width="100%" 
-            height="220" 
+            height="230" 
             style="border:0;" 
             allowfullscreen="" 
             loading="lazy" 
@@ -656,53 +670,53 @@
     <section class="relative z-10 px-6 py-6">
       
       <div class="text-center mb-6">
-        <h2 class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-gold-gradient uppercase">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient uppercase">
           CHƯƠNG TRÌNH TIỆC CƯỚI
         </h2>
         <div class="w-24 mx-auto my-2"><img src="assets/line6.svg" alt="divider" class="w-full h-1"></div>
-        <p class="text-xs text-[#ffe58f]/80 italic">Thứ Tư, Ngày 18 Tháng 11 Năm 2026</p>
+        <p class="text-xs sm:text-sm text-[#fef08a] italic">Thứ Tư, Ngày 18 Tháng 11 Năm 2026</p>
       </div>
 
       <!-- Timeline vertical list -->
-      <div class="relative pl-6 sm:pl-8 space-y-5 before:content-[''] before:absolute before:left-2 sm:before:left-3 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[#ffd700] before:via-[#ffe58f] before:to-[#ffd700]">
+      <div class="relative pl-6 sm:pl-8 space-y-5 before:content-[''] before:absolute before:left-2 sm:before:left-3 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-white before:via-[#fef08a] before:to-white">
         
         <!-- Step 1 -->
         <div class="relative group">
-          <div class="absolute -left-6 sm:-left-8 top-1.5 w-4 h-4 rounded-full bg-[#ffd700] border-2 border-[#7f1d1d] shadow-md group-hover:scale-125 transition"></div>
-          <div class="bg-[#700c0c]/85 p-4 rounded-2xl border border-[#ffe58f]/30">
-            <span class="text-xs font-bold text-[#7f1d1d] bg-[#ffd700] px-2.5 py-0.5 rounded-full font-cinzel">09:30</span>
-            <h4 class="font-serif text-base font-bold text-white mt-2">Đón Tiếp Quan Khách</h4>
-            <p class="text-xs text-[#fff7ed]/80 mt-0.5">Gia đình hân hoan chào đón Quý Khách đến chung vui</p>
+          <div class="absolute -left-6 sm:-left-8 top-1.5 w-4 h-4 rounded-full bg-white border-2 border-[#7f1d1d] shadow-md group-hover:scale-125 transition"></div>
+          <div class="bg-[#700c0c]/90 p-4 rounded-2xl border border-[#fef08a]/35">
+            <span class="text-xs font-bold text-white bg-[#991b1b] border border-[#fef08a]/50 px-3 py-1 rounded-full font-cinzel">09:30</span>
+            <h4 class="font-serif text-base sm:text-lg font-bold text-white mt-2">Đón Tiếp Quan Khách</h4>
+            <p class="text-xs sm:text-sm text-[#fff7ed]/90 mt-1">Gia đình hân hoan chào đón Quý Khách đến chung vui</p>
           </div>
         </div>
 
         <!-- Step 2 -->
         <div class="relative group">
-          <div class="absolute -left-6 sm:-left-8 top-1.5 w-4 h-4 rounded-full bg-[#ffd700] border-2 border-[#7f1d1d] shadow-md group-hover:scale-125 transition"></div>
-          <div class="bg-[#700c0c]/85 p-4 rounded-2xl border border-[#ffe58f]/30">
-            <span class="text-xs font-bold text-[#7f1d1d] bg-[#ffd700] px-2.5 py-0.5 rounded-full font-cinzel">10:30</span>
-            <h4 class="font-serif text-base font-bold text-white mt-2">Cử Hành Lễ Vu Quy</h4>
-            <p class="text-xs text-[#fff7ed]/80 mt-0.5">Nghi thức hôn lễ truyền thống tại tư gia</p>
+          <div class="absolute -left-6 sm:-left-8 top-1.5 w-4 h-4 rounded-full bg-white border-2 border-[#7f1d1d] shadow-md group-hover:scale-125 transition"></div>
+          <div class="bg-[#700c0c]/90 p-4 rounded-2xl border border-[#fef08a]/35">
+            <span class="text-xs font-bold text-white bg-[#991b1b] border border-[#fef08a]/50 px-3 py-1 rounded-full font-cinzel">10:30</span>
+            <h4 class="font-serif text-base sm:text-lg font-bold text-white mt-2">Cử Hành Lễ Vu Quy</h4>
+            <p class="text-xs sm:text-sm text-[#fff7ed]/90 mt-1">Nghi thức hôn lễ truyền thống tại tư gia</p>
           </div>
         </div>
 
         <!-- Step 3 -->
         <div class="relative group">
-          <div class="absolute -left-6 sm:-left-8 top-1.5 w-4 h-4 rounded-full bg-[#ffd700] border-2 border-[#7f1d1d] shadow-md group-hover:scale-125 transition"></div>
-          <div class="bg-[#700c0c]/85 p-4 rounded-2xl border border-[#ffe58f]/30">
-            <span class="text-xs font-bold text-[#7f1d1d] bg-[#ffd700] px-2.5 py-0.5 rounded-full font-cinzel">11:00</span>
-            <h4 class="font-serif text-base font-bold text-white mt-2">Khai Tiệc Mừng Hạnh Phúc</h4>
-            <p class="text-xs text-[#fff7ed]/80 mt-0.5">Nâng ly chúc mừng đôi tân lang - tân nương</p>
+          <div class="absolute -left-6 sm:-left-8 top-1.5 w-4 h-4 rounded-full bg-white border-2 border-[#7f1d1d] shadow-md group-hover:scale-125 transition"></div>
+          <div class="bg-[#700c0c]/90 p-4 rounded-2xl border border-[#fef08a]/35">
+            <span class="text-xs font-bold text-white bg-[#991b1b] border border-[#fef08a]/50 px-3 py-1 rounded-full font-cinzel">11:00</span>
+            <h4 class="font-serif text-base sm:text-lg font-bold text-white mt-2">Khai Tiệc Mừng Hạnh Phúc</h4>
+            <p class="text-xs sm:text-sm text-[#fff7ed]/90 mt-1">Nâng ly chúc mừng đôi tân lang - tân nương</p>
           </div>
         </div>
 
         <!-- Step 4 -->
         <div class="relative group">
-          <div class="absolute -left-6 sm:-left-8 top-1.5 w-4 h-4 rounded-full bg-[#ffd700] border-2 border-[#7f1d1d] shadow-md group-hover:scale-125 transition"></div>
-          <div class="bg-[#700c0c]/85 p-4 rounded-2xl border border-[#ffe58f]/30">
-            <span class="text-xs font-bold text-[#7f1d1d] bg-[#ffd700] px-2.5 py-0.5 rounded-full font-cinzel">12:30</span>
-            <h4 class="font-serif text-base font-bold text-white mt-2">Chụp Ảnh &amp; Tiễn Khách</h4>
-            <p class="text-xs text-[#fff7ed]/80 mt-0.5">Lưu lại những kỷ niệm đẹp và gửi lời tri ấn</p>
+          <div class="absolute -left-6 sm:-left-8 top-1.5 w-4 h-4 rounded-full bg-white border-2 border-[#7f1d1d] shadow-md group-hover:scale-125 transition"></div>
+          <div class="bg-[#700c0c]/90 p-4 rounded-2xl border border-[#fef08a]/35">
+            <span class="text-xs font-bold text-white bg-[#991b1b] border border-[#fef08a]/50 px-3 py-1 rounded-full font-cinzel">12:30</span>
+            <h4 class="font-serif text-base sm:text-lg font-bold text-white mt-2">Chụp Ảnh &amp; Tiễn Khách</h4>
+            <p class="text-xs sm:text-sm text-[#fff7ed]/90 mt-1">Lưu lại những kỷ niệm đẹp và gửi lời tri ân</p>
           </div>
         </div>
 
@@ -711,74 +725,45 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 10: DRESS CODE GỢI Ý               -->
-    <!-- ========================================== -->
-    <section class="relative z-10 px-6 py-6 text-center">
-      <div class="bg-[#700c0c]/80 rounded-3xl p-5 border border-[#ffe58f]/30">
-        <h3 class="text-xs uppercase tracking-[0.25em] text-[#fff6cc] mb-2 font-cinzel font-bold">DRESS CODE GỢI Ý</h3>
-        <p class="text-xs text-[#fff7ed]/80 mb-4">Để những bức hình kỷ niệm thêm phần lung linh, Quý Khách có thể ưu tiên các tone màu:</p>
-        
-        <div class="flex items-center justify-center gap-3 sm:gap-4">
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#dc2626] border-2 border-[#ffd700] shadow-md"></div>
-            <span class="text-[11px] mt-1 text-[#fff2b2]">Đỏ tươi</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#ffd700] border-2 border-white shadow-md"></div>
-            <span class="text-[11px] mt-1 text-[#fff2b2]">Vàng Kim</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#fffbeb] border-2 border-[#ffd700] shadow-md"></div>
-            <span class="text-[11px] mt-1 text-[#fff2b2]">Trắng Kem</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#881313] border-2 border-[#ffd700] shadow-md"></div>
-            <span class="text-[11px] mt-1 text-[#fff2b2]">Đỏ Đô</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- SECTION 11: RSVP / XÁC NHẬN THAM DỰ        -->
+    <!-- SECTION 10: RSVP / XÁC NHẬN THAM DỰ        -->
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-6">
       
-      <div class="bg-gradient-to-b from-[#7f1d1d] to-[#500808] rounded-3xl p-6 border-2 border-[#ffe58f]/50 shadow-2xl">
+      <div class="bg-gradient-to-b from-[#7f1d1d] to-[#500808] rounded-3xl p-6 sm:p-8 border-2 border-[#fef08a]/50 shadow-2xl">
         
-        <div class="text-center mb-5">
+        <div class="text-center mb-6">
           <span class="text-3xl">💌</span>
-          <h2 class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-gold-gradient uppercase mt-1">
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient uppercase mt-1">
             XÁC NHẬN THAM DỰ
           </h2>
-          <p class="text-xs text-[#ffe58f] mt-1 italic">
+          <p class="text-xs sm:text-sm text-[#fef08a] mt-1.5 italic">
             Sự hiện diện của Quý Khách là niềm hạnh phúc lớn của gia đình!
           </p>
         </div>
 
         <form id="rsvp-form" class="space-y-4">
           <div>
-            <label class="block text-xs font-bold text-[#ffd700] mb-1">Họ và tên của bạn *</label>
-            <input type="text" id="guest-name" required placeholder="Ví dụ: Anh Tuấn, Gia đình Chú Bảy..." class="w-full px-4 py-2.5 rounded-xl bg-[#380606] border border-[#ffe58f]/40 text-sm text-white placeholder-amber-200/40 focus:outline-none focus:border-[#ffd700]">
+            <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Họ và tên của bạn *</label>
+            <input type="text" id="guest-name" required placeholder="Ví dụ: Anh Tuấn, Gia đình Chú Bảy..." class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-[#ffd700] mb-1">Bạn sẽ tham dự chứ? *</label>
-            <div class="grid grid-cols-2 gap-2 text-xs">
-              <label class="flex items-center gap-2 p-2.5 rounded-xl bg-[#380606] border border-[#ffe58f]/30 cursor-pointer hover:border-[#ffd700]">
-                <input type="radio" name="attending" value="yes" checked class="accent-[#ffd700]">
-                <span>Chắc chắn sẽ đến 🎉</span>
+            <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Bạn sẽ tham dự chứ? *</label>
+            <div class="grid grid-cols-2 gap-2.5 text-xs sm:text-sm">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white">
+                <input type="radio" name="attending" value="yes" checked class="accent-[#fef08a]">
+                <span class="font-medium text-white">Chắc chắn sẽ đến 🎉</span>
               </label>
-              <label class="flex items-center gap-2 p-2.5 rounded-xl bg-[#380606] border border-[#ffe58f]/30 cursor-pointer hover:border-[#ffd700]">
-                <input type="radio" name="attending" value="no" class="accent-[#ffd700]">
-                <span>Rất tiếc không thể đến 💐</span>
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white">
+                <input type="radio" name="attending" value="no" class="accent-[#fef08a]">
+                <span class="font-medium text-white">Rất tiếc không đến 💐</span>
               </label>
             </div>
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-[#ffd700] mb-1">Số người tham dự</label>
-            <select id="guest-count" class="w-full px-4 py-2.5 rounded-xl bg-[#380606] border border-[#ffe58f]/40 text-sm text-white focus:outline-none focus:border-[#ffd700]">
+            <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Số người tham dự</label>
+            <select id="guest-count" class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white focus:outline-none focus:border-white">
               <option value="1">Đi 1 mình</option>
               <option value="2">Đi 2 người (Cùng người thương)</option>
               <option value="3">Đi cùng gia đình (3+ người)</option>
@@ -786,16 +771,17 @@
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-[#ffd700] mb-1">Lời chúc gửi đôi tân lang &amp; tân nương</label>
-            <textarea id="guest-message" rows="3" placeholder="Gửi gắm lời chúc phúc tốt đẹp nhất..." class="w-full px-4 py-2 rounded-xl bg-[#380606] border border-[#ffe58f]/40 text-sm text-white placeholder-amber-200/40 focus:outline-none focus:border-[#ffd700]"></textarea>
+            <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Lời chúc gửi đôi tân lang &amp; tân nương</label>
+            <textarea id="guest-message" rows="3" placeholder="Gửi gắm lời chúc phúc tốt đẹp nhất..." class="w-full px-4 py-2.5 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white"></textarea>
           </div>
 
-          <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#ffe58f] via-[#ffd700] to-[#ffe58f] text-[#7f1d1d] font-bold text-sm tracking-wider uppercase shadow-lg hover:brightness-110 active:scale-98 transition">
+          <!-- Nút gửi xác nhận (Nhã nhặn, sang trọng) -->
+          <button type="submit" class="w-full py-3.5 sm:py-4 rounded-xl bg-[#fffdf7] hover:bg-[#fff9e6] text-[#881313] border-2 border-[#fef08a] font-bold text-sm sm:text-base tracking-wider uppercase shadow-xl transition">
             Gửi Lời Xác Nhận &amp; Lời Chúc
           </button>
         </form>
 
-        <div id="rsvp-status" class="hidden mt-4 p-3 rounded-xl bg-green-900/70 border border-green-400 text-xs text-green-200 text-center">
+        <div id="rsvp-status" class="hidden mt-4 p-3.5 rounded-xl bg-green-900/80 border border-green-400 text-xs sm:text-sm text-green-200 text-center font-medium">
           ✅ Cảm ơn Quý Khách! Lời xác nhận đã được gửi thành công đến gia đình.
         </div>
 
@@ -804,74 +790,75 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 12: SỔ LƯU BÚT CHÚC PHÚC           -->
+    <!-- SECTION 11: SỔ LƯU BÚT CHÚC PHÚC           -->
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-6">
       
       <div class="text-center mb-6">
-        <h2 class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-gold-gradient uppercase">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient uppercase">
           SỔ LƯU BÚT CHÚC PHÚC
         </h2>
         <div class="w-24 mx-auto my-2"><img src="assets/line6.svg" alt="divider" class="w-full h-1"></div>
-        <p class="text-xs text-[#ffe58f]/80 italic">Những lời chúc yêu thương gửi đến Danh Lâm &amp; Yến Linh</p>
+        <p class="text-xs sm:text-sm text-[#fef08a] italic">Những lời chúc yêu thương gửi đến Danh Lâm &amp; Yến Linh</p>
       </div>
 
       <!-- Guest wishes container -->
-      <div id="wishes-list" class="space-y-3 max-h-80 overflow-y-auto pr-1">
-        <div class="bg-[#700c0c]/85 p-4 rounded-2xl border border-[#ffe58f]/30">
-          <div class="flex items-center justify-between mb-1">
-            <span class="font-bold text-sm text-[#ffd700]">Bạn thân của cô dâu</span>
-            <span class="text-[10px] text-[#ffe58f]/60">Hôm nay</span>
+      <div id="wishes-list" class="space-y-3.5 max-h-80 overflow-y-auto pr-1">
+        <div class="bg-[#700c0c]/90 p-4 sm:p-5 rounded-2xl border border-[#fef08a]/35">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-base text-white">Bạn thân của cô dâu</span>
+            <span class="text-xs text-[#fef08a]">Hôm nay</span>
           </div>
-          <p class="text-xs text-[#fff7ed] italic">"Chúc Yến Linh và Danh Lâm trăm năm hạnh phúc, đầu bạc răng long, luôn mỉm cười rạng rỡ như ngày hôm nay nhé!"</p>
+          <p class="text-sm sm:text-base text-[#fff7ed] italic leading-relaxed">"Chúc Yến Linh và Danh Lâm trăm năm hạnh phúc, đầu bạc răng long, luôn mỉm cười rạng rỡ như ngày hôm nay nhé!"</p>
         </div>
 
-        <div class="bg-[#700c0c]/85 p-4 rounded-2xl border border-[#ffe58f]/30">
-          <div class="flex items-center justify-between mb-1">
-            <span class="font-bold text-sm text-[#ffd700]">Gia đình Bác Hai</span>
-            <span class="text-[10px] text-[#ffe58f]/60">Vừa xong</span>
+        <div class="bg-[#700c0c]/90 p-4 sm:p-5 rounded-2xl border border-[#fef08a]/35">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-base text-white">Gia đình Bác Hai</span>
+            <span class="text-xs text-[#fef08a]">Vừa xong</span>
           </div>
-          <p class="text-xs text-[#fff7ed] italic">"Mừng lễ Vu Quy của hai cháu! Chúc hai cháu thuận vợ thuận chồng, cùng nhau xây dựng tổ ấm sung túc bình an."</p>
+          <p class="text-sm sm:text-base text-[#fff7ed] italic leading-relaxed">"Mừng lễ Vu Quy của hai cháu! Chúc hai cháu thuận vợ thuận chồng, cùng nhau xây dựng tổ ấm sung túc bình an."</p>
         </div>
       </div>
 
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 13: HỘP MỪNG CƯỚI / GIFT BOX       -->
+    <!-- SECTION 12: HỘP MỪNG CƯỚI / GIFT BOX       -->
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-6 text-center">
-      <div class="bg-[#700c0c]/85 rounded-3xl p-6 border border-[#ffe58f]/40 shadow-xl">
+      <div class="bg-[#700c0c]/90 rounded-3xl p-6 sm:p-7 border border-[#fef08a]/40 shadow-xl">
         <div class="text-3xl mb-1">🎁</div>
-        <h3 class="font-serif text-lg font-bold text-gold-gradient uppercase mb-2">HỘP MỪNG CƯỚI</h3>
-        <p class="text-xs text-[#fff7ed]/90 max-w-sm mx-auto mb-4">
+        <h3 class="font-serif text-xl sm:text-2xl font-bold text-gold-gradient uppercase mb-2">HỘP MỪNG CƯỚI</h3>
+        <p class="text-xs sm:text-sm text-[#fff7ed] max-w-sm mx-auto mb-4 leading-relaxed">
           Nếu quý khách ở xa không thể đến tham dự hoặc muốn gửi quà mừng đến đôi uyên ương, có thể gửi lời chúc và món quà qua hộp mừng cưới này.
         </p>
 
-        <button onclick="toggleGiftModal(true)" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#ffe58f] via-[#ffd700] to-[#ffe58f] text-[#7f1d1d] font-bold text-xs tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
+        <!-- Nút mở hộp mừng cưới (Nhã nhặn, sang trọng) -->
+        <button onclick="toggleGiftModal(true)" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#fffdf7] hover:bg-[#fff9e6] text-[#881313] border-2 border-[#fef08a] font-bold text-xs sm:text-sm tracking-wider shadow-lg transition">
           <span>🧧</span> Mở Hộp Mừng Cưới
         </button>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 14: LỜI CẢM ƠN (THANK YOU NOTE)    -->
+    <!-- SECTION 13: LỜI CẢM ƠN (THANK YOU NOTE)    -->
     <!-- ========================================== -->
-    <footer class="relative z-10 pt-10 pb-16 px-6 text-center border-t border-[#ffe58f]/30 mt-8">
+    <footer class="relative z-10 pt-10 pb-16 px-6 text-center border-t border-white/20 mt-8">
       
-      <div class="w-12 h-12 rounded-full border border-[#ffd700] bg-[#881313] flex items-center justify-center mx-auto mb-4 shadow">
+      <div class="w-12 h-12 rounded-full border border-[#fef08a] bg-[#881313] flex items-center justify-center mx-auto mb-4 shadow">
         <span class="text-2xl">💍</span>
       </div>
 
-      <h3 class="font-serif text-xl sm:text-2xl font-bold text-gold-gradient uppercase mb-3">
+      <h3 class="font-serif text-2xl sm:text-3xl font-bold text-gold-gradient uppercase mb-3">
         LỜI CẢM ƠN
       </h3>
 
-      <div class="max-w-md mx-auto space-y-2 text-sm text-[#fff7ed] font-serif italic leading-relaxed">
+      <div class="max-w-md mx-auto space-y-2 text-base sm:text-lg text-[#fff7ed] font-serif italic leading-relaxed">
         <p>
           "Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi!"
         </p>
-        <p class="text-base text-[#ffd700] font-bold not-italic">
+        <p class="text-lg sm:text-xl text-white font-bold not-italic mt-2">
           Kính mời!
         </p>
       </div>
@@ -880,8 +867,8 @@
         <img src="assets/line6.svg" alt="divider" class="w-32 mx-auto h-1">
       </div>
 
-      <p class="font-pinyon text-4xl text-gold-gradient">Danh Lâm &amp; Yến Linh</p>
-      <p class="text-[11px] text-[#ffe58f] tracking-widest uppercase font-cinzel font-bold mt-2">
+      <p class="font-pinyon text-5xl sm:text-6xl text-gold-gradient">Danh Lâm &amp; Yến Linh</p>
+      <p class="text-xs sm:text-sm text-[#fef08a] tracking-widest uppercase font-cinzel font-bold mt-2">
         18 . 11 . 2026 • LỄ VU QUY
       </p>
 
@@ -893,64 +880,64 @@
   <!-- LIGHTBOX MODAL (XEM ẢNH FULLSCREEN)        -->
   <!-- ========================================== -->
   <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 hidden flex items-center justify-center p-4">
-    <button onclick="closeLightbox()" class="absolute top-4 right-4 z-50 text-white hover:text-[#ffd700] bg-[#7f1d1d] border border-[#ffe58f] w-10 h-10 rounded-full flex items-center justify-center text-xl">
+    <button onclick="closeLightbox()" class="absolute top-4 right-4 z-50 text-white hover:text-[#fef08a] bg-[#7f1d1d] border border-[#fef08a] w-10 h-10 rounded-full flex items-center justify-center text-xl">
       ✕
     </button>
-    <button onclick="prevLightbox()" class="absolute left-2 sm:left-4 z-50 text-white hover:text-[#ffd700] bg-[#7f1d1d] border border-[#ffe58f] w-10 h-10 rounded-full flex items-center justify-center text-xl">
+    <button onclick="prevLightbox()" class="absolute left-2 sm:left-4 z-50 text-white hover:text-[#fef08a] bg-[#7f1d1d] border border-[#fef08a] w-10 h-10 rounded-full flex items-center justify-center text-xl">
       ❮
     </button>
-    <button onclick="nextLightbox()" class="absolute right-2 sm:right-4 z-50 text-white hover:text-[#ffd700] bg-[#7f1d1d] border border-[#ffe58f] w-10 h-10 rounded-full flex items-center justify-center text-xl">
+    <button onclick="nextLightbox()" class="absolute right-2 sm:right-4 z-50 text-white hover:text-[#fef08a] bg-[#7f1d1d] border border-[#fef08a] w-10 h-10 rounded-full flex items-center justify-center text-xl">
       ❯
     </button>
     <div class="max-w-2xl max-h-[85vh] flex flex-col items-center">
-      <img id="lightbox-img" src="" alt="Album photo" class="max-h-[80vh] w-auto object-contain rounded-xl border border-[#ffe58f] shadow-2xl">
-      <p id="lightbox-caption" class="text-xs text-[#ffe58f] mt-3 font-serif font-semibold"></p>
+      <img id="lightbox-img" src="" alt="Album photo" class="max-h-[80vh] w-auto object-contain rounded-xl border border-[#fef08a] shadow-2xl">
+      <p id="lightbox-caption" class="text-sm sm:text-base text-[#fef08a] mt-3 font-serif font-semibold"></p>
     </div>
   </div>
 
   <!-- ========================================== -->
   <!-- GIFT BOX MODAL (HỘP MỪNG CƯỚI)             -->
   <!-- ========================================== -->
-  <div id="gift-modal" class="fixed inset-0 z-50 bg-black/80 hidden flex items-center justify-center p-4">
-    <div class="relative bg-gradient-to-b from-[#7f1d1d] to-[#450a0a] rounded-3xl max-w-sm w-full p-6 border-2 border-[#ffe58f] shadow-2xl text-center">
-      <button onclick="toggleGiftModal(false)" class="absolute top-3 right-3 text-[#ffe58f] hover:text-white text-lg font-bold">
+  <div id="gift-modal" class="fixed inset-0 z-50 bg-black/85 hidden flex items-center justify-center p-4">
+    <div class="relative bg-gradient-to-b from-[#7f1d1d] to-[#450a0a] rounded-3xl max-w-sm w-full p-6 sm:p-7 border-2 border-[#fef08a] shadow-2xl text-center">
+      <button onclick="toggleGiftModal(false)" class="absolute top-3.5 right-3.5 text-[#fef08a] hover:text-white text-xl font-bold">
         ✕
       </button>
 
       <div class="text-3xl mb-1">🧧</div>
-      <h3 class="font-serif text-lg font-bold text-gold-gradient uppercase mb-1">MỪNG CƯỚI ĐÔI UYÊN ƯƠNG</h3>
-      <p class="text-xs text-[#fff7ed] mb-4">Gia đình xin chân thành cảm ơn tấm lòng và lời chúc tốt đẹp của Quý Khách!</p>
+      <h3 class="font-serif text-xl font-bold text-gold-gradient uppercase mb-1">MỪNG CƯỚI ĐÔI UYÊN ƯƠNG</h3>
+      <p class="text-xs sm:text-sm text-[#fff7ed] mb-4">Gia đình xin chân thành cảm ơn tấm lòng và lời chúc tốt đẹp của Quý Khách!</p>
 
       <div class="space-y-4">
         <!-- Chú rể -->
-        <div class="bg-[#2b0606] p-4 rounded-2xl border border-[#ffe58f]/40 text-left text-xs">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-[#ffd700] font-bold">Chú Rể: Danh Lâm</span>
-            <span class="text-[10px] text-[#ffe58f]">Chuyển khoản</span>
+        <div class="bg-[#2b0606] p-4 rounded-2xl border border-[#fef08a]/40 text-left text-xs sm:text-sm">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-white font-bold">Chú Rể: Danh Lâm</span>
+            <span class="text-xs text-[#fef08a]">Chuyển khoản</span>
           </div>
           <p class="text-[#fff7ed]">Ngân hàng: <strong class="text-white">Vietcombank (VCB)</strong></p>
-          <div class="flex items-center justify-between mt-2 pt-2 border-t border-[#ffe58f]/20">
-            <span class="font-mono text-sm font-bold text-[#ffd700]">0123456789</span>
-            <button onclick="copyToClipboard('0123456789')" class="text-[11px] bg-[#991b1b] hover:bg-[#b91c1c] px-3 py-1 rounded-full text-white font-semibold border border-[#ffe58f]">Sao chép</button>
+          <div class="flex items-center justify-between mt-2.5 pt-2.5 border-t border-white/20">
+            <span class="font-mono text-base font-bold text-[#fef08a]">0123456789</span>
+            <button onclick="copyToClipboard('0123456789')" class="text-xs bg-[#881313] hover:bg-[#991b1b] px-3.5 py-1 rounded-full text-white font-bold border border-[#fef08a]">Sao chép</button>
           </div>
         </div>
 
         <!-- Cô dâu -->
-        <div class="bg-[#2b0606] p-4 rounded-2xl border border-[#ffe58f]/40 text-left text-xs">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-[#ffd700] font-bold">Cô Dâu: Yến Linh</span>
-            <span class="text-[10px] text-[#ffe58f]">Chuyển khoản</span>
+        <div class="bg-[#2b0606] p-4 rounded-2xl border border-[#fef08a]/40 text-left text-xs sm:text-sm">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-white font-bold">Cô Dâu: Yến Linh</span>
+            <span class="text-xs text-[#fef08a]">Chuyển khoản</span>
           </div>
           <p class="text-[#fff7ed]">Ngân hàng: <strong class="text-white">VietinBank (ICB)</strong></p>
-          <div class="flex items-center justify-between mt-2 pt-2 border-t border-[#ffe58f]/20">
-            <span class="font-mono text-sm font-bold text-[#ffd700]">9876543210</span>
-            <button onclick="copyToClipboard('9876543210')" class="text-[11px] bg-[#991b1b] hover:bg-[#b91c1c] px-3 py-1 rounded-full text-white font-semibold border border-[#ffe58f]">Sao chép</button>
+          <div class="flex items-center justify-between mt-2.5 pt-2.5 border-t border-white/20">
+            <span class="font-mono text-base font-bold text-[#fef08a]">9876543210</span>
+            <button onclick="copyToClipboard('9876543210')" class="text-xs bg-[#881313] hover:bg-[#991b1b] px-3.5 py-1 rounded-full text-white font-bold border border-[#fef08a]">Sao chép</button>
           </div>
         </div>
       </div>
 
       <div class="mt-5">
-        <button onclick="toggleGiftModal(false)" class="w-full py-2.5 rounded-xl bg-[#991b1b] hover:bg-[#b91c1c] border border-[#ffe58f] text-xs font-bold text-[#fff2b2]">
+        <button onclick="toggleGiftModal(false)" class="w-full py-3 rounded-xl bg-[#881313] hover:bg-[#991b1b] border border-[#fef08a] text-xs sm:text-sm font-bold text-white">
           Đóng cửa sổ
         </button>
       </div>
@@ -958,7 +945,7 @@
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#ffd700] text-[#7f1d1d] font-bold text-xs px-5 py-2.5 rounded-full shadow-2xl opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#fffdf7] text-[#881313] border border-[#fef08a] font-bold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-2xl opacity-0 pointer-events-none transition-opacity duration-300">
     Đã sao chép vào bộ nhớ tạm!
   </div>
 
@@ -1097,13 +1084,13 @@
 
       if (message) {
         const item = document.createElement('div');
-        item.className = 'bg-[#700c0c]/85 p-4 rounded-2xl border border-[#ffe58f]/30 transition-all';
+        item.className = 'bg-[#700c0c]/90 p-4 sm:p-5 rounded-2xl border border-[#fef08a]/35 transition-all';
         item.innerHTML = `
-          <div class="flex items-center justify-between mb-1">
-            <span class="font-bold text-sm text-[#ffd700]">${escapeHTML(name)}</span>
-            <span class="text-[10px] text-[#ffe58f]/60">Vừa gửi</span>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-base text-white">${escapeHTML(name)}</span>
+            <span class="text-xs text-[#fef08a]">Vừa gửi</span>
           </div>
-          <p class="text-xs text-[#fff7ed] italic">"${escapeHTML(message)}"</p>
+          <p class="text-sm sm:text-base text-[#fff7ed] italic leading-relaxed">"${escapeHTML(message)}"</p>
         `;
         wishesList.prepend(item);
       }
@@ -1148,9 +1135,9 @@
     // 8. Gentle Falling Golden Sparkles Effect
     function createSparkleShower() {
       const main = document.getElementById('main-invitation');
-      const colors = ['#ffd700', '#ffe58f', '#ffffff', '#fff3b0'];
+      const colors = ['#fef08a', '#ffffff', '#fef9c3', '#fed7aa'];
       
-      for (let i = 0; i < 22; i++) {
+      for (let i = 0; i < 20; i++) {
         const sparkle = document.createElement('div');
         const size = Math.random() * 4 + 3;
         sparkle.className = 'sparkle';
