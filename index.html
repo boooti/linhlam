@@ -404,7 +404,7 @@
               Thay mặt song thân
             </p>
             <div class="space-y-2 font-serif text-base sm:text-lg">
-              <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-lg sm:text-xl font-bold">DANH DẸ</strong> <span class="text-xs sm:text-sm text-[#fef08a] italic font-normal">(Cố phụ)</span></p>
+              <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-lg sm:text-xl font-bold">DANH DẸ</strong></p>
               <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Bà:</span> <strong class="text-lg sm:text-xl font-bold">THỊ THỦY</strong></p>
             </div>
           </div>
@@ -424,7 +424,7 @@
               Song thân nhà trai
             </p>
             <div class="space-y-2 font-serif text-base sm:text-lg">
-              <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-lg sm:text-xl font-bold">DANH BẢNH</strong></p>
+              <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-lg sm:text-xl font-bold">DANH BẢNH</strong> <span class="text-xs sm:text-sm text-[#fef08a] italic font-normal">(Cố phụ)</span></p>
               <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Bà:</span> <strong class="text-lg sm:text-xl font-bold">NGÔ THỊ NHỊ</strong></p>
             </div>
           </div>
@@ -739,47 +739,74 @@
         </div>
 
         <form id="rsvp-form" class="space-y-4">
+          <!-- 1. Họ và tên -->
           <div>
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Họ và tên của bạn *</label>
-            <input type="text" id="guest-name" required placeholder="Ví dụ: Anh Tuấn, Gia đình Chú Bảy..." class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white">
+            <input type="text" id="guest-name" required placeholder="Ví dụ: Anh Tuấn, Chị Mai, Gia đình Chú Bảy..." class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition">
           </div>
 
+          <!-- 2. Khách của ai? (Để đếm vào Khách nhà trai / Khách nhà gái trong Google Sheet) -->
+          <div>
+            <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Bạn là khách của ai? *</label>
+            <div class="grid grid-cols-2 gap-2.5 text-xs sm:text-sm">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
+                <input type="radio" name="side" value="Nhà gái" checked class="accent-[#fef08a] w-4 h-4">
+                <span class="font-medium text-white">Khách Nhà Gái (Yến Linh)</span>
+              </label>
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
+                <input type="radio" name="side" value="Nhà trai" class="accent-[#fef08a] w-4 h-4">
+                <span class="font-medium text-white">Khách Nhà Trai (Danh Lâm)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 3. Bạn sẽ tham dự chứ? (Tham dự / Không tham dự theo công thức Sheet) -->
           <div>
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Bạn sẽ tham dự chứ? *</label>
             <div class="grid grid-cols-2 gap-2.5 text-xs sm:text-sm">
-              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white">
-                <input type="radio" name="attending" value="yes" checked class="accent-[#fef08a]">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
+                <input type="radio" name="attending" value="Tham dự" checked class="accent-[#fef08a] w-4 h-4">
                 <span class="font-medium text-white">Chắc chắn sẽ đến 🎉</span>
               </label>
-              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white">
-                <input type="radio" name="attending" value="no" class="accent-[#fef08a]">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
+                <input type="radio" name="attending" value="Không tham dự" class="accent-[#fef08a] w-4 h-4">
                 <span class="font-medium text-white">Rất tiếc không đến 💐</span>
               </label>
             </div>
           </div>
 
-          <div>
-            <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Số người tham dự</label>
-            <select id="guest-count" class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white focus:outline-none focus:border-white">
-              <option value="1">Đi 1 mình</option>
-              <option value="2">Đi 2 người (Cùng người thương)</option>
-              <option value="3">Đi cùng gia đình (3+ người)</option>
+          <!-- 4. Số người tham dự (Tự động ẩn nếu chọn Không tham dự) -->
+          <div id="guest-count-wrapper">
+            <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Số lượng người tham dự</label>
+            <select id="guest-count" class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white focus:outline-none focus:border-white transition">
+              <option value="1">1 người</option>
+              <option value="2">2 người (Cùng người thương)</option>
+              <option value="3">3 người (Gia đình)</option>
+              <option value="4">4 người trở lên</option>
             </select>
           </div>
 
+          <!-- 5. Số điện thoại (tùy chọn) -->
+          <div>
+            <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Số điện thoại <span class="text-xs font-normal text-amber-200/70">(tùy chọn)</span></label>
+            <input type="tel" id="guest-phone" placeholder="Ví dụ: 0912 345 678" class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition">
+          </div>
+
+          <!-- 6. Lời chúc -->
           <div>
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Lời chúc gửi đôi tân lang &amp; tân nương</label>
-            <textarea id="guest-message" rows="3" placeholder="Gửi gắm lời chúc phúc tốt đẹp nhất..." class="w-full px-4 py-2.5 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white"></textarea>
+            <textarea id="guest-message" rows="3" placeholder="Gửi gắm lời chúc phúc tốt đẹp nhất đến Danh Lâm &amp; Yến Linh..." class="w-full px-4 py-2.5 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition"></textarea>
           </div>
 
           <!-- Nút gửi xác nhận (Nhã nhặn, sang trọng) -->
-          <button type="submit" class="w-full py-3.5 sm:py-4 rounded-xl bg-[#fffdf7] hover:bg-[#fff9e6] text-[#881313] border-2 border-[#fef08a] font-bold text-sm sm:text-base tracking-wider uppercase shadow-xl transition">
-            Gửi Lời Xác Nhận &amp; Lời Chúc
+          <button type="submit" id="rsvp-submit-btn" class="w-full py-3.5 sm:py-4 rounded-xl bg-[#fffdf7] hover:bg-[#fff9e6] active:scale-[0.98] text-[#881313] border-2 border-[#fef08a] font-bold text-sm sm:text-base tracking-wider uppercase shadow-xl transition flex items-center justify-center gap-2">
+            <span>💌</span>
+            <span id="rsvp-btn-text">Gửi Lời Xác Nhận &amp; Lời Chúc</span>
           </button>
         </form>
 
-        <div id="rsvp-status" class="hidden mt-4 p-3.5 rounded-xl bg-green-900/80 border border-green-400 text-xs sm:text-sm text-green-200 text-center font-medium">
-          ✅ Cảm ơn Quý Khách! Lời xác nhận đã được gửi thành công đến gia đình.
+        <div id="rsvp-status" class="hidden mt-4 p-4 rounded-xl bg-green-900/90 border border-green-400 text-sm text-green-100 text-center font-medium shadow-lg animate-fade-in">
+          🎉 Cảm ơn Quý Khách! Phản hồi đã được ghi nhận vào danh sách khách mời của gia đình.
         </div>
 
       </div>
@@ -865,7 +892,7 @@
       </div>
 
       <p class="font-pinyon text-4xl sm:text-5xl md:text-6xl text-gold-gradient whitespace-nowrap">Danh Lâm &amp; Yến Linh</p>
-      <p class="text-xs sm:text-sm text-[#fef08a] tracking-widest uppercase font-cinzel font-bold mt-2">
+      <p class="text-xs sm:text-sm text-[#fef08a] tracking-widest uppercase font-serif font-bold mt-2">
         18 . 11 . 2026 • LỄ VU QUY
       </p>
 
@@ -1066,36 +1093,168 @@
       openLightbox(currentPhotoIdx);
     }
 
-    // 5. RSVP Form & Wishbook
+    // ==========================================
+    // 5. RSVP Form & Wishbook (Connected to Google Sheets)
+    // Sheet ID: 1xMB4EcStAd-WIxsEa-XC7T0B8m5z3xBiJsiI_LDYZV4
+    // ==========================================
+    const GOOGLE_SHEET_ID = '1xMB4EcStAd-WIxsEa-XC7T0B8m5z3xBiJsiI_LDYZV4';
+    // Web App URL từ Google Apps Script (Người dùng triển khai theo hướng dẫn trong file google-apps-script.js)
+    let GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwWeddingLinhLamRSVP_Deployed/exec';
+
     const rsvpForm = document.getElementById('rsvp-form');
     const rsvpStatus = document.getElementById('rsvp-status');
     const wishesList = document.getElementById('wishes-list');
+    const guestCountWrapper = document.getElementById('guest-count-wrapper');
+    const attendingRadios = document.querySelectorAll('input[name="attending"]');
 
-    rsvpForm.addEventListener('submit', (e) => {
+    // Toggle hiển thị chọn số người khi chọn Tham dự / Không tham dự
+    attendingRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.value === 'Không tham dự' && radio.checked) {
+          guestCountWrapper.classList.add('hidden');
+        } else if (radio.value === 'Tham dự' && radio.checked) {
+          guestCountWrapper.classList.remove('hidden');
+        }
+      });
+    });
+
+    // Helper hàm thêm lời chúc vào danh sách hiển thị
+    function addWishToUI(wish, prepend = true) {
+      const item = document.createElement('div');
+      item.className = 'bg-[#700c0c]/90 p-4 sm:p-5 rounded-2xl border border-[#fef08a]/35 transition-all shadow-md';
+      
+      const sideBadge = wish.side 
+        ? `<span class="inline-block ml-2 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#991b1b] border border-[#fef08a]/40 text-[#fef08a]">${escapeHTML(wish.side)}</span>`
+        : '';
+
+      item.innerHTML = `
+        <div class="flex items-center justify-between mb-1.5 flex-wrap gap-1">
+          <div class="flex items-center">
+            <span class="font-bold text-base text-white">${escapeHTML(wish.name)}</span>
+            ${sideBadge}
+          </div>
+          <span class="text-xs text-[#fef08a]">${escapeHTML(wish.time || 'Vừa xong')}</span>
+        </div>
+        <p class="text-sm sm:text-base text-[#fff7ed] italic leading-relaxed">"${escapeHTML(wish.message)}"</p>
+      `;
+
+      if (prepend) {
+        wishesList.prepend(item);
+      } else {
+        wishesList.appendChild(item);
+      }
+    }
+
+    // Tải lời chúc thực tế từ Google Sheet qua GViz API (Công khai, tự động cập nhật)
+    async function loadWishesFromGoogleSheet() {
+      try {
+        const gvizUrl = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=out:json`;
+        const resp = await fetch(gvizUrl);
+        if (!resp.ok) return;
+        const text = await resp.text();
+        const start = text.indexOf('{');
+        const end = text.lastIndexOf('}') + 1;
+        if (start === -1 || end === 0) return;
+        
+        const data = JSON.parse(text.substring(start, end));
+        const rows = (data.table && data.table.rows) ? data.table.rows : [];
+        
+        // Dữ liệu khách bắt đầu từ row index 3 (dòng 8 trong Sheet)
+        const sheetWishes = [];
+        for (let i = 3; i < rows.length; i++) {
+          const cells = rows[i].c;
+          if (!cells) continue;
+          const time = cells[1] ? (cells[1].f || cells[1].v || '') : '';
+          const name = cells[2] ? (cells[2].v || '') : '';
+          const message = cells[5] ? (cells[5].v || '') : '';
+          const side = cells[6] ? (cells[6].v || '') : '';
+
+          if (name && message) {
+            sheetWishes.push({
+              name: String(name),
+              message: String(message),
+              side: side ? String(side) : '',
+              time: time ? String(time) : 'Mới đây'
+            });
+          }
+        }
+
+        if (sheetWishes.length > 0) {
+          // Hiển thị lời chúc mới nhất lên đầu
+          wishesList.innerHTML = '';
+          sheetWishes.reverse().forEach(w => addWishToUI(w, false));
+        }
+      } catch (err) {
+        console.log('Thông báo tải sổ lưu bút:', err);
+      }
+    }
+
+    // Tự động tải lời chúc khi mở trang
+    window.addEventListener('DOMContentLoaded', () => {
+      loadWishesFromGoogleSheet();
+    });
+
+    // Xử lý gửi Form RSVP
+    rsvpForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
       const name = document.getElementById('guest-name').value.trim();
+      const sideRadio = document.querySelector('input[name="side"]:checked');
+      const side = sideRadio ? sideRadio.value : 'Nhà gái';
+      const attendingRadio = document.querySelector('input[name="attending"]:checked');
+      const attending = attendingRadio ? attendingRadio.value : 'Tham dự';
+      const countVal = (attending === 'Tham dự') ? parseInt(document.getElementById('guest-count').value, 10) : 0;
+      const phone = document.getElementById('guest-phone').value.trim();
       const message = document.getElementById('guest-message').value.trim();
-      const attending = document.querySelector('input[name="attending"]:checked').value;
 
       if (!name) return;
 
+      const submitBtn = document.getElementById('rsvp-submit-btn');
+      const btnText = document.getElementById('rsvp-btn-text');
+      submitBtn.disabled = true;
+      btnText.textContent = 'Đang ghi nhận...';
+
+      const payload = {
+        name: name,
+        side: side,
+        attending: attending,
+        guestCount: countVal,
+        phone: phone,
+        message: message
+      };
+
+      // 1. Thêm ngay vào giao diện Sổ lưu bút nếu có lời chúc
       if (message) {
-        const item = document.createElement('div');
-        item.className = 'bg-[#700c0c]/90 p-4 sm:p-5 rounded-2xl border border-[#fef08a]/35 transition-all';
-        item.innerHTML = `
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-bold text-base text-white">${escapeHTML(name)}</span>
-            <span class="text-xs text-[#fef08a]">Vừa gửi</span>
-          </div>
-          <p class="text-sm sm:text-base text-[#fff7ed] italic leading-relaxed">"${escapeHTML(message)}"</p>
-        `;
-        wishesList.prepend(item);
+        addWishToUI({
+          name: name,
+          side: side,
+          message: message,
+          time: 'Vừa gửi'
+        }, true);
       }
 
+      // 2. Gửi đồng bộ lên Google Sheet qua Apps Script Web App
+      try {
+        if (GOOGLE_SCRIPT_URL && !GOOGLE_SCRIPT_URL.includes('AKfycbwWeddingLinhLamRSVP_Deployed')) {
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+      } catch (fetchErr) {
+        console.log('Lưu ý gửi Google Sheets:', fetchErr);
+      }
+
+      // 3. Cập nhật UI thông báo thành công
       rsvpStatus.classList.remove('hidden');
       rsvpForm.reset();
-
+      submitBtn.disabled = false;
+      btnText.textContent = 'Gửi Lời Xác Nhận & Lời Chúc';
+      
       showToast('Cảm ơn bạn đã xác nhận tham dự!');
+      rsvpStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 
     function escapeHTML(str) {
