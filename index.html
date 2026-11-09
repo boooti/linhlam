@@ -1246,18 +1246,28 @@
         }, true);
       }
 
-      // 2. Gửi đồng bộ lên Google Sheet qua Apps Script Web App
+      // 2. Gửi đồng bộ lên Google Sheet qua Apps Script Web App (Hỗ trợ cả FormData & URLSearchParams)
       try {
         if (GOOGLE_SCRIPT_URL && !GOOGLE_SCRIPT_URL.includes('AKfycbwWeddingLinhLamRSVP_Deployed')) {
+          const formData = new FormData();
+          formData.append('name', name);
+          formData.append('side', side);
+          formData.append('attending', attending);
+          formData.append('guestCount', countVal);
+          formData.append('phone', phone);
+          formData.append('message', message);
+
           await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: formData
           });
+          console.log('Đã gửi thành công lên Google Sheet!');
+        } else {
+          console.warn('Đang dùng Web App URL mẫu, cần thay bằng URL thật từ Apps Script của bạn.');
         }
       } catch (fetchErr) {
-        console.log('Lưu ý gửi Google Sheets:', fetchErr);
+        console.error('Lỗi kết nối Google Sheets:', fetchErr);
       }
 
       // 3. Cập nhật UI thông báo thành công
