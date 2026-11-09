@@ -58,7 +58,7 @@
     }
 
     body {
-      background-color: #280505;
+      background-color: #3b0909;
       color: #fff8ea;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
@@ -199,7 +199,7 @@
   <!-- ========================================== -->
   <!-- 1. ENVELOPE LANDING SCREEN (ĐỎ TƯƠI SÁNG)  -->
   <!-- ========================================== -->
-  <div id="envelope-screen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-opacity duration-1000" style="background: radial-gradient(ellipse at 50% 40%, #ef4444 0%, #dc2626 35%, #b91c1c 70%, #991b1b 100%);">
+  <div id="envelope-screen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-opacity duration-1000" style="background: radial-gradient(ellipse at 50% 35%, #a31c1c 0%, #8f1616 45%, #7a1010 80%, #5e0b0b 100%);">
     
     <!-- Ambient Floating Romantic Elements -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-[1]">
@@ -215,7 +215,7 @@
     <div class="envelope-perspective relative z-10 w-[92vw] max-w-[480px]">
       
       <!-- Envelope Outer Card -->
-      <div id="envelope-box" class="envelope-card relative w-full bg-gradient-to-b from-[#dc2626] via-[#c51d24] to-[#991b1b] rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border-2 border-[#fef08a]/60 p-6 sm:p-8 text-center overflow-hidden">
+      <div id="envelope-box" class="envelope-card relative w-full bg-gradient-to-b from-[#a31c1c] via-[#8f1616] to-[#7a1010] rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border-2 border-[#fef08a]/60 p-6 sm:p-8 text-center overflow-hidden">
         
         <!-- Subtle Watermark Dragon & Phoenix -->
         <div class="absolute inset-0 flex items-center justify-between opacity-15 pointer-events-none px-2">
@@ -276,7 +276,10 @@
   <!-- ========================================== -->
   <!-- 2. MAIN WEDDING INVITATION WEBSITE         -->
   <!-- ========================================== -->
-  <main id="main-invitation" class="relative max-w-xl mx-auto min-h-screen bg-gradient-to-b from-[#991b1b] via-[#881313] to-[#6d0d0d] text-[#fff8ea] shadow-2xl border-x border-[#fef08a]/30 overflow-hidden pb-16">
+  <main id="main-invitation" class="relative max-w-xl mx-auto min-h-screen bg-gradient-to-b from-[#a31c1c] via-[#8f1616] to-[#7a1010] text-[#fff8ea] shadow-2xl border-x border-[#fef08a]/30 overflow-hidden pb-16">
+
+    <!-- Soft Ambient Luminous Layers ("Màu nhẹ nhàng cho trang chính") -->
+    <div class="absolute inset-0 pointer-events-none opacity-30 z-0 bg-[radial-gradient(circle_at_50%_15%,rgba(254,240,138,0.22),transparent_55%),radial-gradient(circle_at_50%_50%,rgba(254,215,170,0.18),transparent_55%),radial-gradient(circle_at_50%_85%,rgba(254,240,138,0.18),transparent_55%)]"></div>
 
     <!-- Parallax Background Clouds & Oriental Textures -->
     <div class="absolute inset-0 pointer-events-none opacity-20 z-0 bg-cover bg-center" style="background-image: url('assets/bg-main.webp');"></div>
@@ -395,7 +398,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         
         <!-- NHÀ GÁI (Thay mặt song thân nhà gái) -->
-        <div class="bg-[#780f0f]/90 rounded-2xl p-5 sm:p-6 border border-[#fef08a]/40 shadow-xl text-center flex flex-col justify-between h-full">
+        <div class="bg-gradient-to-b from-[#8a1414]/90 to-[#730d0d]/90 rounded-2xl p-4 sm:p-5 border border-[#fef08a]/45 shadow-xl text-center flex flex-col justify-between h-full">
           <div>
             <div class="inline-block px-4 py-1 rounded-full bg-[#991b1b] border border-[#fef08a]/60 text-xs sm:text-sm font-bold text-white uppercase tracking-widest mb-3">
               NHÀ GÁI
@@ -404,18 +407,18 @@
               Thay mặt song thân
             </p>
             <div class="space-y-2 font-serif text-base sm:text-lg">
-              <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-lg sm:text-xl font-bold">DANH DẸ</strong></p>
-              <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Bà:</span> <strong class="text-lg sm:text-xl font-bold">THỊ THỦY</strong></p>
+              <p class="text-white"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-base sm:text-lg font-bold">DANH DẸ</strong></p>
+              <p class="text-white"><span class="text-[#fef08a] text-sm">Bà:</span> <strong class="text-base sm:text-lg font-bold">THỊ THỦY</strong></p>
             </div>
           </div>
-          <div class="mt-4 pt-3.5 border-t border-white/20 text-xs sm:text-sm text-[#fff7ed] flex items-center justify-center gap-1.5 whitespace-nowrap">
-            <span class="text-sm">📍</span>
-            <span>Ấp Thanh Hưng, Thạnh Lộc, An Giang</span>
+          <div class="mt-4 pt-3 border-t border-white/20 text-xs sm:text-sm text-[#fff7ed] flex items-center justify-center gap-1.5 text-center px-1">
+            <span class="text-sm shrink-0">📍</span>
+            <span class="break-words leading-snug">Ấp Thanh Hưng, Thạnh Lộc, An Giang</span>
           </div>
         </div>
 
         <!-- NHÀ TRAI -->
-        <div class="bg-[#780f0f]/90 rounded-2xl p-5 sm:p-6 border border-[#fef08a]/40 shadow-xl text-center flex flex-col justify-between h-full">
+        <div class="bg-gradient-to-b from-[#8a1414]/90 to-[#730d0d]/90 rounded-2xl p-4 sm:p-5 border border-[#fef08a]/45 shadow-xl text-center flex flex-col justify-between h-full">
           <div>
             <div class="inline-block px-4 py-1 rounded-full bg-[#991b1b] border border-[#fef08a]/60 text-xs sm:text-sm font-bold text-white uppercase tracking-widest mb-3">
               NHÀ TRAI
@@ -424,13 +427,13 @@
               Song thân nhà trai
             </p>
             <div class="space-y-2 font-serif text-base sm:text-lg">
-              <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-lg sm:text-xl font-bold">DANH BẢNH</strong> <span class="text-xs sm:text-sm text-[#fef08a] italic font-normal">(Cố phụ)</span></p>
-              <p class="text-white whitespace-nowrap"><span class="text-[#fef08a] text-sm">Bà:</span> <strong class="text-lg sm:text-xl font-bold">NGÔ THỊ NHỊ</strong></p>
+              <p class="text-white"><span class="text-[#fef08a] text-sm">Ông:</span> <strong class="text-base sm:text-lg font-bold">DANH BẢNH</strong> <span class="text-xs sm:text-sm text-[#fef08a] italic font-normal whitespace-nowrap">(Cố phụ)</span></p>
+              <p class="text-white"><span class="text-[#fef08a] text-sm">Bà:</span> <strong class="text-base sm:text-lg font-bold">NGÔ THỊ NHỊ</strong></p>
             </div>
           </div>
-          <div class="mt-4 pt-3.5 border-t border-white/20 text-xs sm:text-sm text-[#fff7ed] flex items-center justify-center gap-1.5 whitespace-nowrap">
-            <span class="text-sm">📍</span>
-            <span>Ấp Minh Long, Châu Thành, An Giang</span>
+          <div class="mt-4 pt-3 border-t border-white/20 text-xs sm:text-sm text-[#fff7ed] flex items-center justify-center gap-1.5 text-center px-1">
+            <span class="text-sm shrink-0">📍</span>
+            <span class="break-words leading-snug">Ấp Minh Long, Châu Thành, An Giang</span>
           </div>
         </div>
 
@@ -451,7 +454,7 @@
         <div class="grid grid-cols-2 gap-4 items-center my-4">
           
           <!-- Chú rể Chibi -->
-          <div class="p-4 bg-[#450a0a]/85 rounded-2xl border border-[#fef08a]/35 flex flex-col items-center shadow-md">
+          <div class="p-4 bg-[#691111]/85 rounded-2xl border border-[#fef08a]/35 flex flex-col items-center shadow-md">
             <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#fef08a] overflow-hidden mb-2 shadow-lg bg-[#fff7ed]">
               <img src="assets/photos/chibi-groom.jpg" alt="Chú rể Danh Lâm Chibi" class="w-full h-full object-cover">
             </div>
@@ -463,7 +466,7 @@
           </div>
 
           <!-- Cô dâu Chibi -->
-          <div class="p-4 bg-[#450a0a]/85 rounded-2xl border border-[#fef08a]/35 flex flex-col items-center shadow-md">
+          <div class="p-4 bg-[#691111]/85 rounded-2xl border border-[#fef08a]/35 flex flex-col items-center shadow-md">
             <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#fef08a] overflow-hidden mb-2 shadow-lg bg-[#fff7ed]">
               <img src="assets/photos/chibi-bride.jpg" alt="Cô dâu Yến Linh Chibi" class="w-full h-full object-cover">
             </div>
@@ -509,22 +512,22 @@
         <!-- Timer boxes -->
         <div class="grid grid-cols-4 gap-2.5 sm:gap-3.5 max-w-sm mx-auto">
           
-          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#fef08a]/30 shadow-inner">
+          <div class="bg-[#630f0f]/90 p-3 rounded-2xl border border-[#fef08a]/45 shadow-inner">
             <span id="days" class="block font-serif text-3xl sm:text-4xl font-bold text-white">00</span>
             <span class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-wider font-semibold">Ngày</span>
           </div>
 
-          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#fef08a]/30 shadow-inner">
+          <div class="bg-[#630f0f]/90 p-3 rounded-2xl border border-[#fef08a]/45 shadow-inner">
             <span id="hours" class="block font-serif text-3xl sm:text-4xl font-bold text-white">00</span>
             <span class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-wider font-semibold">Giờ</span>
           </div>
 
-          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#fef08a]/30 shadow-inner">
+          <div class="bg-[#630f0f]/90 p-3 rounded-2xl border border-[#fef08a]/45 shadow-inner">
             <span id="minutes" class="block font-serif text-3xl sm:text-4xl font-bold text-white">00</span>
             <span class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-wider font-semibold">Phút</span>
           </div>
 
-          <div class="bg-[#450a0a] p-3 rounded-2xl border border-[#fef08a]/30 shadow-inner">
+          <div class="bg-[#630f0f]/90 p-3 rounded-2xl border border-[#fef08a]/45 shadow-inner">
             <span id="seconds" class="block font-serif text-3xl sm:text-4xl font-bold text-white">00</span>
             <span class="text-xs sm:text-sm text-[#fef08a] uppercase tracking-wider font-semibold">Giây</span>
           </div>
@@ -612,7 +615,7 @@
         </div>
 
         <!-- Banquet Info Cards -->
-        <div class="my-5 space-y-3.5 text-left bg-[#380606]/80 p-4 sm:p-5 rounded-2xl border border-[#fef08a]/35 text-sm sm:text-base">
+        <div class="my-5 space-y-3.5 text-left bg-[#691111]/85 p-4 sm:p-5 rounded-2xl border border-[#fef08a]/35 text-sm sm:text-base">
           
           <div class="flex items-center gap-3.5">
             <span class="w-10 h-10 rounded-full bg-[#991b1b] flex items-center justify-center text-base border border-[#fef08a] text-white shrink-0">🗓️</span>
@@ -726,7 +729,7 @@
     <!-- ========================================== -->
     <section class="relative z-10 px-6 py-6">
       
-      <div class="bg-gradient-to-b from-[#7f1d1d] to-[#500808] rounded-3xl p-6 sm:p-8 border-2 border-[#fef08a]/50 shadow-2xl">
+      <div class="bg-gradient-to-b from-[#8a1414] to-[#6d0d0d] rounded-3xl p-6 sm:p-8 border-2 border-[#fef08a]/50 shadow-2xl">
         
         <div class="text-center mb-6">
           <span class="text-3xl">💌</span>
@@ -742,18 +745,18 @@
           <!-- 1. Họ và tên -->
           <div>
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Họ và tên của bạn *</label>
-            <input type="text" id="guest-name" required placeholder="Ví dụ: Anh Tuấn, Chị Mai, Gia đình Chú Bảy..." class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition">
+            <input type="text" id="guest-name" required placeholder="Ví dụ: Anh Tuấn, Chị Mai, Gia đình Chú Bảy..." class="w-full px-4 py-3 rounded-xl bg-[#5c0e0e] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition">
           </div>
 
           <!-- 2. Khách của ai? (Để đếm vào Khách nhà trai / Khách nhà gái trong Google Sheet) -->
           <div>
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Bạn là khách của ai? *</label>
             <div class="grid grid-cols-2 gap-2.5 text-xs sm:text-sm">
-              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#5c0e0e] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
                 <input type="radio" name="side" value="Nhà gái" checked class="accent-[#fef08a] w-4 h-4">
                 <span class="font-medium text-white">Khách Nhà Gái (Yến Linh)</span>
               </label>
-              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#5c0e0e] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
                 <input type="radio" name="side" value="Nhà trai" class="accent-[#fef08a] w-4 h-4">
                 <span class="font-medium text-white">Khách Nhà Trai (Danh Lâm)</span>
               </label>
@@ -764,11 +767,11 @@
           <div>
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Bạn sẽ tham dự chứ? *</label>
             <div class="grid grid-cols-2 gap-2.5 text-xs sm:text-sm">
-              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#5c0e0e] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
                 <input type="radio" name="attending" value="Tham dự" checked class="accent-[#fef08a] w-4 h-4">
                 <span class="font-medium text-white">Chắc chắn sẽ đến 🎉</span>
               </label>
-              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#380606] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-[#5c0e0e] border border-[#fef08a]/35 cursor-pointer hover:border-white transition">
                 <input type="radio" name="attending" value="Không tham dự" class="accent-[#fef08a] w-4 h-4">
                 <span class="font-medium text-white">Rất tiếc không đến 💐</span>
               </label>
@@ -778,7 +781,7 @@
           <!-- 4. Số người tham dự (Tự động ẩn nếu chọn Không tham dự) -->
           <div id="guest-count-wrapper">
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Số lượng người tham dự</label>
-            <select id="guest-count" class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white focus:outline-none focus:border-white transition">
+            <select id="guest-count" class="w-full px-4 py-3 rounded-xl bg-[#5c0e0e] border border-[#fef08a]/40 text-base text-white focus:outline-none focus:border-white transition">
               <option value="1">1 người</option>
               <option value="2">2 người (Cùng người thương)</option>
               <option value="3">3 người (Gia đình)</option>
@@ -789,13 +792,13 @@
           <!-- 5. Số điện thoại (tùy chọn) -->
           <div>
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Số điện thoại <span class="text-xs font-normal text-amber-200/70">(tùy chọn)</span></label>
-            <input type="tel" id="guest-phone" placeholder="Ví dụ: 0912 345 678" class="w-full px-4 py-3 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition">
+            <input type="tel" id="guest-phone" placeholder="Ví dụ: 0912 345 678" class="w-full px-4 py-3 rounded-xl bg-[#5c0e0e] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition">
           </div>
 
           <!-- 6. Lời chúc -->
           <div>
             <label class="block text-xs sm:text-sm font-bold text-[#fef08a] mb-1.5">Lời chúc gửi đôi tân lang &amp; tân nương</label>
-            <textarea id="guest-message" rows="3" placeholder="Gửi gắm lời chúc phúc tốt đẹp nhất đến Danh Lâm &amp; Yến Linh..." class="w-full px-4 py-2.5 rounded-xl bg-[#380606] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition"></textarea>
+            <textarea id="guest-message" rows="3" placeholder="Gửi gắm lời chúc phúc tốt đẹp nhất đến Danh Lâm &amp; Yến Linh..." class="w-full px-4 py-2.5 rounded-xl bg-[#5c0e0e] border border-[#fef08a]/40 text-base text-white placeholder-amber-200/40 focus:outline-none focus:border-white transition"></textarea>
           </div>
 
           <!-- Nút gửi xác nhận (Nhã nhặn, sang trọng) -->
@@ -891,7 +894,7 @@
         <img src="assets/line6.svg" alt="divider" class="w-32 mx-auto h-1">
       </div>
 
-      <p class="font-pinyon text-4xl sm:text-5xl md:text-6xl text-gold-gradient whitespace-nowrap">Danh Lâm &amp; Yến Linh</p>
+      <p class="font-pinyon text-2xl sm:text-3xl md:text-4xl text-gold-gradient tracking-wide leading-tight px-2">Danh Lâm &amp; Yến Linh</p>
       <p class="text-xs sm:text-sm text-[#fef08a] tracking-widest uppercase font-serif font-bold mt-2">
         18 . 11 . 2026 • LỄ VU QUY
       </p>
@@ -923,7 +926,7 @@
   <!-- GIFT BOX MODAL (HỘP MỪNG CƯỚI)             -->
   <!-- ========================================== -->
   <div id="gift-modal" class="fixed inset-0 z-50 bg-black/85 hidden flex items-center justify-center p-4">
-    <div class="relative bg-gradient-to-b from-[#7f1d1d] to-[#450a0a] rounded-3xl max-w-sm w-full p-6 sm:p-7 border-2 border-[#fef08a] shadow-2xl text-center">
+    <div class="relative bg-gradient-to-b from-[#8a1414] to-[#630f0f] rounded-3xl max-w-sm w-full p-6 sm:p-7 border-2 border-[#fef08a] shadow-2xl text-center">
       <button onclick="toggleGiftModal(false)" class="absolute top-3.5 right-3.5 text-[#fef08a] hover:text-white text-xl font-bold">
         ✕
       </button>
@@ -934,7 +937,7 @@
 
       <div class="space-y-4">
         <!-- Chú rể -->
-        <div class="bg-[#2b0606] p-4 rounded-2xl border border-[#fef08a]/40 text-left text-xs sm:text-sm">
+        <div class="bg-[#5e0f0f] p-4 rounded-2xl border border-[#fef08a]/40 text-left text-xs sm:text-sm">
           <div class="flex items-center justify-between mb-1.5">
             <span class="text-white font-bold">Chú Rể: Danh Lâm</span>
             <span class="text-xs text-[#fef08a]">Chuyển khoản</span>
@@ -947,7 +950,7 @@
         </div>
 
         <!-- Cô dâu -->
-        <div class="bg-[#2b0606] p-4 rounded-2xl border border-[#fef08a]/40 text-left text-xs sm:text-sm">
+        <div class="bg-[#5e0f0f] p-4 rounded-2xl border border-[#fef08a]/40 text-left text-xs sm:text-sm">
           <div class="flex items-center justify-between mb-1.5">
             <span class="text-white font-bold">Cô Dâu: Yến Linh</span>
             <span class="text-xs text-[#fef08a]">Chuyển khoản</span>
