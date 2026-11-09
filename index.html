@@ -84,29 +84,31 @@
       }
     }
 
-    /* Floating Golden Sparkles */
+    /* Gentle Falling Romantic Flower Petals (Hiệu ứng cánh hoa bay nhẹ nhàng) */
     @keyframes petal-fall {
       0% {
-        transform: translate3d(0, -10vh, 0) rotate(0deg);
+        transform: translate3d(0, -40px, 0) rotate(0deg) rotateX(0deg) rotateY(0deg) scale(0.85);
         opacity: 0;
       }
-      20% {
-        opacity: 0.9;
+      12% {
+        opacity: 0.88;
       }
-      90% {
-        opacity: 0.9;
+      85% {
+        opacity: 0.88;
       }
       100% {
-        transform: translate3d(var(--drift, 40px), 110vh, 0) rotate(360deg);
+        transform: translate3d(var(--drift, 50px), 108vh, 0) rotate(360deg) rotateX(180deg) rotateY(360deg) scale(0.95);
         opacity: 0;
       }
     }
 
-    .sparkle {
+    .falling-petal {
       position: absolute;
-      border-radius: 50%;
+      border-radius: 140% 15% 140% 15%;
       pointer-events: none;
-      filter: blur(0.5px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      filter: drop-shadow(0 2px 3px rgba(180, 20, 40, 0.18));
+      will-change: transform, opacity;
     }
 
     /* Envelope 3D Animation */
@@ -167,6 +169,9 @@
 </head>
 <body class="relative min-h-screen selection:bg-red-800 selection:text-amber-100">
 
+  <!-- Fixed Container for Gentle Falling Flower Petals Across Screen -->
+  <div id="petal-container" class="fixed inset-0 pointer-events-none z-30 overflow-hidden" aria-hidden="true"></div>
+
   <!-- ========================================== -->
   <!-- BACKGROUND AUDIO: "Một Đời"               -->
   <!-- ========================================== -->
@@ -183,10 +188,7 @@
       <div id="music-disc" class="w-7 h-7 rounded-full border border-[#fef08a] flex items-center justify-center animate-spin-slow bg-[#500808]">
         <span class="text-xs text-[#fef08a]">♫</span>
       </div>
-      <div class="flex flex-col text-left">
-        <span class="text-xs font-bold text-white leading-tight">Một Đời</span>
-        <span class="text-[10px] text-[#fef08a]/80">14 Casper &amp; Bon</span>
-      </div>
+      <span class="text-xs font-bold text-white tracking-wide">Một Đời</span>
       <!-- Equalizer Bars -->
       <div id="equalizer" class="flex items-end gap-[2px] h-3 ml-1">
         <span class="w-[2px] h-full bg-[#fef08a] rounded animate-pulse"></span>
@@ -201,14 +203,14 @@
   <!-- ========================================== -->
   <div id="envelope-screen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-opacity duration-1000" style="background: radial-gradient(ellipse at 50% 35%, #a31c1c 0%, #8f1616 45%, #7a1010 80%, #5e0b0b 100%);">
     
-    <!-- Ambient Floating Romantic Elements -->
+    <!-- Ambient Floating Romantic Flower Petals (Cánh hoa bay lãng mạn) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-[1]">
-      <div class="absolute text-xl text-[#fef08a] select-none" style="left: 10%; bottom: -40px; --sway: 20px; animation: ambient-rise 16s ease-in-out infinite;">✨</div>
-      <div class="absolute text-2xl text-white select-none" style="left: 22%; bottom: -40px; --sway: -15px; animation: ambient-rise 20s ease-in-out 2s infinite;">💛</div>
-      <div class="absolute text-xl text-white select-none" style="left: 38%; bottom: -40px; --sway: 25px; animation: ambient-rise 18s ease-in-out 1s infinite;">🌸</div>
-      <div class="absolute text-2xl text-[#fef08a] select-none" style="left: 62%; bottom: -40px; --sway: -20px; animation: ambient-rise 22s ease-in-out 3s infinite;">✨</div>
-      <div class="absolute text-xl text-white select-none" style="left: 78%; bottom: -40px; --sway: 15px; animation: ambient-rise 17s ease-in-out 1.5s infinite;">💛</div>
-      <div class="absolute text-2xl text-white select-none" style="left: 90%; bottom: -40px; --sway: -30px; animation: ambient-rise 23s ease-in-out 4s infinite;">🌸</div>
+      <div class="absolute text-xl select-none opacity-85" style="left: 10%; bottom: -40px; --sway: 20px; animation: ambient-rise 16s ease-in-out infinite;">🌸</div>
+      <div class="absolute text-2xl select-none opacity-85" style="left: 24%; bottom: -40px; --sway: -18px; animation: ambient-rise 20s ease-in-out 2s infinite;">🌺</div>
+      <div class="absolute text-xl select-none opacity-85" style="left: 42%; bottom: -40px; --sway: 25px; animation: ambient-rise 18s ease-in-out 1s infinite;">🌸</div>
+      <div class="absolute text-2xl select-none opacity-85" style="left: 60%; bottom: -40px; --sway: -22px; animation: ambient-rise 22s ease-in-out 3s infinite;">🌸</div>
+      <div class="absolute text-xl select-none opacity-85" style="left: 76%; bottom: -40px; --sway: 16px; animation: ambient-rise 17s ease-in-out 1.5s infinite;">🌺</div>
+      <div class="absolute text-2xl select-none opacity-85" style="left: 90%; bottom: -40px; --sway: -28px; animation: ambient-rise 23s ease-in-out 4s infinite;">🌸</div>
     </div>
 
     <!-- The Envelope Container -->
@@ -1291,28 +1293,40 @@
       }, 2500);
     }
 
-    // 8. Gentle Falling Golden Sparkles Effect
-    function createSparkleShower() {
-      const main = document.getElementById('main-invitation');
-      const colors = ['#fef08a', '#ffffff', '#fef9c3', '#fed7aa'];
-      
-      for (let i = 0; i < 20; i++) {
-        const sparkle = document.createElement('div');
-        const size = Math.random() * 4 + 3;
-        sparkle.className = 'sparkle';
-        sparkle.style.width = size + 'px';
-        sparkle.style.height = size + 'px';
-        sparkle.style.left = Math.random() * 95 + '%';
-        sparkle.style.top = Math.random() * 100 + '%';
-        sparkle.style.setProperty('--drift', (Math.random() * 60 - 30) + 'px');
-        sparkle.style.animation = `petal-fall ${Math.random() * 10 + 12}s linear infinite`;
-        sparkle.style.animationDelay = (Math.random() * 8) + 's';
-        sparkle.style.opacity = Math.random() * 0.7 + 0.3;
-        sparkle.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]} 0%, rgba(255,255,255,0) 70%)`;
-        main.appendChild(sparkle);
+    // 8. Gentle Falling Romantic Flower Petals Effect (Cánh hoa rơi nhẹ nhàng)
+    function createPetalShower() {
+      const container = document.getElementById('petal-container');
+      if (!container) return;
+
+      const petalGradients = [
+        'linear-gradient(135deg, #ffd1dc 0%, #ff85a2 55%, #e63946 100%)',
+        'linear-gradient(135deg, #ffe5ec 0%, #ffb3c6 60%, #ff758f 100%)',
+        'linear-gradient(135deg, #ffccd5 0%, #ff4d6d 50%, #c9184a 100%)',
+        'linear-gradient(135deg, #fff0f3 0%, #ffb3c1 50%, #d90429 100%)',
+        'linear-gradient(135deg, #fce7f3 0%, #f472b6 55%, #db2777 100%)'
+      ];
+
+      for (let i = 0; i < 22; i++) {
+        const petal = document.createElement('div');
+        const width = Math.random() * 7 + 12; // 12px to 19px
+        const height = width * 1.35; // natural elongated petal shape
+        petal.className = 'falling-petal';
+        petal.style.width = width + 'px';
+        petal.style.height = height + 'px';
+        petal.style.left = (Math.random() * 96) + '%';
+        petal.style.top = '-35px';
+        petal.style.background = petalGradients[Math.floor(Math.random() * petalGradients.length)];
+        petal.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
+        
+        const duration = Math.random() * 6 + 9; // 9s to 15s gentle slow fall
+        const delay = Math.random() * 10; // staggered delay
+        petal.style.animation = `petal-fall ${duration}s ease-in-out infinite`;
+        petal.style.animationDelay = delay + 's';
+        
+        container.appendChild(petal);
       }
     }
-    createSparkleShower();
+    createPetalShower();
   </script>
 
 </body>
